@@ -119,13 +119,33 @@
             height: 100vh;
         }
 
-        /* --- 继承样式 (省略重复代码，但已包含在最终代码中) --- */
+        /* --- 容器和区块 --- */
         .container { width: 90%; max-width: 1200px; margin: auto; padding: 40px 0; overflow: hidden; }
         section { padding: 60px 0; margin-bottom: 20px; }
         h1, h2, h3 { color: var(--primary-color); font-weight: 500; }
         h2 { font-size: 2.2em; text-align: center; margin-bottom: 40px; position: relative; }
         h2::after { content: ''; display: block; width: 50px; height: 3px; background: var(--secondary-color); margin: 10px auto 0; }
-        #hero { background: linear-gradient(rgba(0, 71, 171, 0.9), rgba(0, 71, 171, 0.9)), url('path/to/your/tech-background-image.jpg'); background-size: cover; color: white; padding: 120px 0 100px; text-align: center; position: relative; }
+        
+        /* --- 头部 (Hero Section) --- */
+        #hero { 
+            background: linear-gradient(rgba(0, 71, 171, 0.9), rgba(0, 71, 171, 0.9)), url('path/to/your/tech-background-image.jpg'); 
+            background-size: cover; 
+            color: white; 
+            padding: 80px 0 100px; /* 顶部空间留给 Logo */
+            text-align: center; 
+            position: relative; 
+        }
+
+        /* --- LOGO 样式 --- */
+        #site-logo {
+            width: 150px; /* 调整尺寸以保持专业性 */
+            height: auto;
+            margin-bottom: 25px;
+            /* 如果 logo 是白色，不需要 filter。如果 logo 是彩色，可能需要 filter: brightness(0) invert(1) 使其变白 */
+            /* filter: brightness(0) invert(1); */ 
+        }
+
+        #hero h1 { color: white; font-size: 3.2em; margin-bottom: 10px; font-weight: 700; }
         .lang-switch { position: absolute; top: 20px; right: 20px; }
         .lang-switch button { background: none; color: white; border: 1px solid white; padding: 5px 10px; cursor: pointer; border-radius: var(--border-radius); margin-left: 5px; transition: background-color 0.3s; }
         .navbar { background: var(--background-dark); color: white; text-align: center; z-index: 1000; }
@@ -134,17 +154,9 @@
         .navbar a:hover { background-color: var(--primary-color); color: white; }
         #advantages .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; text-align: center; }
         .advantage-card { background: white; padding: 30px; border-top: 5px solid var(--primary-color); border-radius: var(--border-radius); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
-        .advantage-card h3 { font-size: 1.4em; margin-top: 10px; color: var(--secondary-color); }
-        .capabilities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
         .capability-category { background: var(--background-light); padding: 20px; border-left: 4px solid var(--primary-color); border-radius: var(--border-radius); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); }
-        .capability-category h3 { color: var(--background-dark); margin-top: 0; font-size: 1.3em; font-weight: 500; }
-        .capability-category ul { list-style: none; padding-left: 0; font-size: 0.95em; }
-        .capability-category li { padding: 5px 0; border-bottom: 1px dotted #ddd; }
         #contact { background-color: var(--background-dark); color: white; text-align: center; }
-        #contact h2 { color: white; }
-        #contact a { color: var(--secondary-color); text-decoration: none; font-weight: bold; }
         footer { background: #222; color: #ccc; text-align: center; padding: 20px 0; font-size: 0.9em; }
-        footer a { color: #aaa; margin: 0 10px; text-decoration: none; transition: color 0.3s; }
     </style>
 </head>
 <body class="no-scroll"> <div class="lang-switch">
@@ -153,6 +165,8 @@
     </div>
 
     <header id="hero">
+        <img src="logo.jpg" alt="BitWerk IT Logo" id="site-logo">
+        
         <h1 id="hero-title">Micro/Nanofabrication Consultation</h1>
         <p id="hero-subtitle">Leveraging Global Network for Cost-Efficient Process Matching.</p>
     </header>
@@ -220,16 +234,14 @@
     <div id="impressum-modal" class="modal-overlay">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('impressum')">&times;</span>
-            <div id="impressum-content">
-                </div>
+            <div id="impressum-content"></div>
         </div>
     </div>
 
     <div id="privacy-modal" class="modal-overlay">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('privacy')">&times;</span>
-            <div id="privacy-content">
-                </div>
+            <div id="privacy-content"></div>
         </div>
     </div>
 
@@ -255,80 +267,66 @@
             vat_id: "DE450384414"
         };
         
-        // --- 语言文本数据 (仅展示联系和法律信息，其他能力信息沿用上一次的结构) ---
+        // --- 语言文本数据 (省略了重复的能力部分文本) ---
         const LEGAL_TEXTS = {
             en: {
                 // Impressum
-                'impr-h2': 'Legal Notice (Impressum)',
-                'impr-info': 'Information according to § 5 TMG',
-                'impr-name': 'Registered Name:',
-                'impr-rep': 'Represented by (Managing Director):',
-                'impr-address': 'Address:',
-                'impr-contact': 'Contact:',
-                'impr-vat-h3': 'VAT Information',
-                'impr-vat-id': 'VAT Identification Number (USt-IDNr.):',
-                'impr-vat-note': 'Note: We primarily serve B2B clients and display prices net of VAT. VAT will be added or shifted according to EU regulations.',
+                'impr-h2': 'Legal Notice (Impressum)', 'impr-info': 'Information according to § 5 TMG', 'impr-name': 'Registered Name:', 'impr-rep': 'Represented by (Managing Director):', 'impr-address': 'Address:', 'impr-contact': 'Contact:', 'impr-vat-h3': 'VAT Information', 'impr-vat-id': 'VAT Identification Number (USt-IDNr.):', 'impr-vat-note': 'Note: We primarily serve B2B clients and display prices net of VAT. VAT will be added or shifted according to EU regulations.',
 
                 // Privacy
-                'priv-h2': 'Privacy Policy (Datenschutzerklärung)',
-                'priv-p1': 'This privacy policy informs you about the nature, scope, and purpose of the processing of personal data (hereinafter referred to as "data") within our online offering.',
-                'priv-responsible-h3': '1. Responsible Party',
-                'priv-responsible-p': `Responsible for data processing is the company ${CONTACT_INFO.name}.`,
-                'priv-data-h3': '2. Types of Data Processed',
-                'priv-data-p': 'We process basic communication and usage data. This includes IP addresses, browser information, and website visit timestamps, primarily for technical security and functionality. If you contact us via email, we process your email address and message content for the purpose of communication.',
-                'priv-rights-h3': '3. Your Rights (GDPR)',
-                'priv-rights-p': 'You have the right to request confirmation as to whether data concerning you is being processed, information about this data, and a copy of the data. You also have the right to request the completion or correction of data concerning you or the restriction of processing (Art. 15-21 GDPR). Please direct all inquiries to the contact details provided in the Impressum.',
-                'priv-note': 'Note: This policy provides general information. We do not use third-party tracking (e.g., Google Analytics) without explicit consent via the cookie banner.',
+                'priv-h2': 'Privacy Policy (Datenschutzerklärung)', 'priv-p1': 'This privacy policy informs you about the nature, scope, and purpose of the processing of personal data (hereinafter referred to as "data") within our online offering.', 'priv-responsible-h3': '1. Responsible Party', 'priv-responsible-p': `Responsible for data processing is the company ${CONTACT_INFO.name}.`, 'priv-data-h3': '2. Types of Data Processed', 'priv-data-p': 'We process basic communication and usage data. This includes IP addresses, browser information, and website visit timestamps, primarily for technical security and functionality. If you contact us via email, we process your email address and message content for the purpose of communication.', 'priv-rights-h3': '3. Your Rights (GDPR)', 'priv-rights-p': 'You have the right to request confirmation as to whether data concerning you is being processed, information about this data, and a copy of the data. You also have the right to request the completion or correction of data concerning you or the restriction of processing (Art. 15-21 GDPR). Please direct all inquiries to the contact details provided in the Impressum.', 'priv-note': 'Note: This policy provides general information. We do not use third-party tracking (e.g., Google Analytics) without explicit consent via the cookie banner.',
                 
                 // Contact
-                'contact-p2': '**Email:**',
-                'contact-p3': '**Phone:**',
-                'footer-text': `© 2025 ${CONTACT_INFO.name} - Germany`,
-                'footer-impressum': 'Legal Notice (Impressum)',
-                'footer-privacy': 'Privacy Policy (Datenschutz)',
+                'contact-p2': '**Email:**', 'contact-p3': '**Phone:**', 'footer-text': `© 2025 ${CONTACT_INFO.name} - Germany`, 'footer-impressum': 'Legal Notice (Impressum)', 'footer-privacy': 'Privacy Policy (Datenschutz)',
                 
                 // Cookie
-                'cookie-text': 'We use cookies to ensure the functionality and performance of our website. By clicking "Accept All", you agree to the use of all cookies.',
-                'cookie-accept': 'Accept All',
-                'cookie-decline': 'Decline'
+                'cookie-text': 'We use cookies to ensure the functionality and performance of our website. By clicking "Accept All", you agree to the use of all cookies.', 'cookie-accept': 'Accept All', 'cookie-decline': 'Decline',
+
+                // Advantages
+                'advantages-h2': 'Competitive Advantages: Experience & Network', 'adv-1-h3': 'Cost-Competitive Matching', 'adv-1-p': 'Access to a verifiable global network of fabrication partners, enabling cost-effective sourcing for specialized projects.', 'adv-2-h3': 'Accelerated Delivery', 'adv-2-p': 'Deep industrial insight allows for rapid identification of available manufacturing capacity, helping to minimize lead times.', 'adv-3-h3': 'Process Reliability', 'adv-3-p': 'Years of micro/nanofabrication expertise ensures stringent partner selection and technical oversight for reliable project outcomes.',
+                
+                // Capabilities (for full update in setLanguage)
+                'capabilities-h2': 'Supported Micro/Nanofabrication Capabilities (Facility Access)', 'capabilities-intro': 'We facilitate access to advanced R&D and pilot/volume production lines (including 6-inch R&D and 8-inch pilot lines). Our network supports a comprehensive range of process packages and equipment:',
+                'cap-group-1-h3': 'Lithography', 'cap-group-1-ul': `<li>**Equipment:** Double-side Contact Aligner, Stepper Projection System.</li><li>**Advanced:** Electron Beam Lithography (E-beam).</li><li>**Application:** Patterning for MEMS, III-V devices, and specialized structures.</li>`,
+                'cap-group-2-h3': 'Deposition', 'cap-group-2-ul': `<li>**PVD:** Magnetron Sputtering, E-beam Evaporation, Thermal Evaporation, Pulsed Laser Deposition (PLD).</li><li>**CVD:** PECVD, ICPCVD, LPCVD, MPCVD.</li><li>**Special:** Atomic Layer Deposition (ALD) support for precision film growth.</li>`,
+                'cap-group-3-h3': 'Plasma Etching', 'cap-group-3-ul': `<li>**Equipment:** RIE, ICP, NLD-ICP.</li><li>**Precision:** Ion Beam Etching (IBE), Trimming.</li><li>**Deep Etching:** Deep RIE (DRIE) for high aspect ratio structures, VHF (Very High Frequency) etching.</li>`,
+                'cap-group-4-h3': 'Assembly & Packaging', 'cap-group-4-ul': `<li>**Wafer Level:** Wafer Bonding (Si-Glass, Au-In, Au-Sn, etc.), TSV/TGV (high aspect ratio).</li><li>**Chip Level:** Flip-chip bonding, Die Attach, Wire Bonding, Dispensing.</li><li>**Finishing:** Thinning, CMP, Dicing, Integrated Packaging Solutions.</li>`,
+                'cap-group-5-h3': 'Analytics & Metrology', 'cap-group-5-ul': `<li>**Thickness/Profile:** Profilometer, Film Thickness Measurement.</li><li>**Material/Structure:** X-ray, AFM, Ultrasonic Testing.</li><li>**Electrical/Mechanical:** I-V/C-V testing, Tensile Testing, Electrical characterization.</li>`,
+                'cap-group-6-h3': 'Wet Chemistry & Substrate Prep', 'cap-group-6-ul': `<li>**Epitaxy Support:** Access to GaN, InP, GaAs epitaxial growth, and support for Si/Sapphire/Glass substrates.</li><li>**Wet Processes:** Standard acid/solvent wet benches for etching, cleaning, and lift-off processes.</li><li>**Specialized Etching:** Wet chemical etching for specific material removal (e.g., Silicon, Oxide).</li>`,
+                'cap-group-7-h3': 'Advanced Applications', 'cap-group-7-ul': `<li>**Piezoelectric MEMS:** (002) preferred AlScN processing (with ion milling) and PZT.</li><li>**Compound Semi:** GaN HEMT (D/E-mode, DCFL/CMOS), Micro-LED (8" monolithic integration).</li><li>**Integration:** Chiplet technology, Heterogeneous Integration.</li><li>**Quantum:** MEMS-based Atomic Vapor Cell (Rb, Cs, buffer gas filling).</li>`,
+                'hero-title': 'Micro/Nanofabrication Consultation', 'hero-subtitle': 'Leveraging Global Network for Cost-Efficient Process Matching.', 'title': 'Micro/Nanofabrication Consultation | BitWerk IT',
+                'nav-advantages': 'Advantages', 'nav-capabilities': 'Capabilities', 'nav-contact': 'Contact', 'nav-impressum': 'Legal Notice (Impressum)', 'nav-privacy': 'Privacy Policy', 'sticky-nav-advantages': 'Advantages', 'sticky-nav-capabilities': 'Capabilities', 'sticky-nav-contact': 'Contact', 'sticky-nav-impressum': 'Legal Notice (Impressum)', 'sticky-nav-privacy': 'Privacy Policy'
             },
             de: {
                 // Impressum
-                'impr-h2': 'Impressum',
-                'impr-info': 'Angaben gemäß $\S 5$ Telemediengesetz (TMG)',
-                'impr-name': 'Eingetragener Name:',
-                'impr-rep': 'Vertreten durch (Geschäftsführer):',
-                'impr-address': 'Adresse:',
-                'impr-contact': 'Kontakt:',
-                'impr-vat-h3': 'Umsatzsteuer-Information',
-                'impr-vat-id': 'Umsatzsteuer-Identifikationsnummer (USt-IDNr.):',
-                'impr-vat-note': 'Hinweis: Wir betreuen primär B2B-Kunden und zeigen Preise exklusive Mehrwertsteuer an. Die Umsatzsteuer wird gemäß den EU-Vorschriften hinzugerechnet oder verlagert.',
+                'impr-h2': 'Impressum', 'impr-info': 'Angaben gemäß § 5 Telemediengesetz (TMG)', 'impr-name': 'Eingetragener Name:', 'impr-rep': 'Vertreten durch (Geschäftsführer):', 'impr-address': 'Adresse:', 'impr-contact': 'Kontakt:', 'impr-vat-h3': 'Umsatzsteuer-Information', 'impr-vat-id': 'Umsatzsteuer-Identifikationsnummer (USt-IDNr.):', 'impr-vat-note': 'Hinweis: Wir betreuen primär B2B-Kunden und zeigen Preise exklusive Mehrwertsteuer an. Die Umsatzsteuer wird gemäß den EU-Vorschriften hinzugerechnet oder verlagert.',
 
                 // Privacy
-                'priv-h2': 'Datenschutzerklärung',
-                'priv-p1': 'Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend „Daten“) innerhalb unseres Onlineangebotes auf.',
-                'priv-responsible-h3': '1. Verantwortliche Stelle',
-                'priv-responsible-p': `Verantwortlich für die Datenverarbeitung ist das Unternehmen ${CONTACT_INFO.name}.`,
-                'priv-data-h3': '2. Arten der verarbeiteten Daten',
-                'priv-data-p': 'Wir verarbeiten grundlegende Kommunikations- und Nutzungsdaten. Dazu gehören IP-Adressen, Browserinformationen und Zeitstempel der Website-Besuche, primär zur technischen Sicherheit und Funktionalität. Sofern Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre E-Mail-Adresse und den Nachrichteninhalt zum Zwecke der Kommunikation.',
-                'priv-rights-h3': '3. Ihre Rechte (DSGVO)',
-                'priv-rights-p': 'Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden, Auskunft über diese Daten sowie eine Kopie der Daten zu verlangen. Sie haben ferner das Recht, die Vervollständigung oder die Berichtigung der Sie betreffenden Daten oder die Einschränkung der Verarbeitung zu verlangen ($\S\S 15-21$ DSGVO). Richten Sie alle Anfragen bitte an die im Impressum angegebene Kontaktadresse.',
-                'priv-note': 'Hinweis: Diese Richtlinie bietet allgemeine Informationen. Wir verwenden keine externen Tracking-Dienste (z.B. Google Analytics) ohne Ihre explizite Zustimmung über das Cookie-Banner.',
+                'priv-h2': 'Datenschutzerklärung', 'priv-p1': 'Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend „Daten“) innerhalb unseres Onlineangebotes auf.', 'priv-responsible-h3': '1. Verantwortliche Stelle', 'priv-responsible-p': `Verantwortlich für die Datenverarbeitung ist das Unternehmen ${CONTACT_INFO.name}.`, 'priv-data-h3': '2. Arten der verarbeiteten Daten', 'priv-data-p': 'Wir verarbeiten grundlegende Kommunikations- und Nutzungsdaten. Dazu gehören IP-Adressen, Browserinformationen und Zeitstempel der Website-Besuche, primär zur technischen Sicherheit und Funktionalität. Sofern Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre E-Mail-Adresse und den Nachrichteninhalt zum Zwecke der Kommunikation.', 'priv-rights-h3': '3. Ihre Rechte (DSGVO)', 'priv-rights-p': 'Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden, Auskunft über diese Daten sowie eine Kopie der Daten zu verlangen. Sie haben ferner das Recht, die Vervollständigung oder die Berichtigung der Sie betreffenden Daten oder die Einschränkung der Verarbeitung zu verlangen (§§ 15-21 DSGVO). Richten Sie alle Anfragen bitte an die im Impressum angegebene Kontaktadresse.', 'priv-note': 'Hinweis: Diese Richtlinie bietet allgemeine Informationen. Wir verwenden keine externen Tracking-Dienste (z.B. Google Analytics) ohne Ihre explizite Zustimmung über das Cookie-Banner.',
                 
                 // Contact
-                'contact-p2': '**E-Mail:**',
-                'contact-p3': '**Telefon:**',
-                'footer-text': `© 2025 ${CONTACT_INFO.name} - Deutschland`,
-                'footer-impressum': 'Impressum',
-                'footer-privacy': 'Datenschutz',
+                'contact-p2': '**E-Mail:**', 'contact-p3': '**Telefon:**', 'footer-text': `© 2025 ${CONTACT_INFO.name} - Deutschland`, 'footer-impressum': 'Impressum', 'footer-privacy': 'Datenschutz',
 
                 // Cookie
-                'cookie-text': 'Wir verwenden Cookies, um die Funktionalität und Leistung unserer Website zu gewährleisten. Mit Klick auf "Alle akzeptieren" stimmen Sie der Verwendung aller Cookies zu.',
-                'cookie-accept': 'Alle akzeptieren',
-                'cookie-decline': 'Ablehnen'
+                'cookie-text': 'Wir verwenden Cookies, um die Funktionalität und Leistung unserer Website zu gewährleisten. Mit Klick auf "Alle akzeptieren" stimmen Sie der Verwendung aller Cookies zu.', 'cookie-accept': 'Alle akzeptieren', 'cookie-decline': 'Ablehnen',
+
+                // Advantages
+                'advantages-h2': 'Wettbewerbsvorteile: Erfahrung & Netzwerk', 'adv-1-h3': 'Wettbewerbsfähige Preise', 'adv-1-p': 'Zugang zu einem überprüfbaren globalen Netzwerk von Fertigungspartnern, das kosteneffiziente Beschaffung für spezialisierte Projekte ermöglicht.', 'adv-2-h3': 'Beschleunigte Lieferung', 'adv-2-p': 'Tiefgreifende Branchenkenntnisse ermöglichen die schnelle Identifizierung verfügbarer Fertigungskapazitäten, wodurch Vorlaufzeiten minimiert werden.', 'adv-3-h3': 'Prozesszuverlässigkeit', 'adv-3-p': 'Jahrelange Expertise in der Mikro-/Nanofabrikation gewährleistet eine strenge Partnerauswahl und technische Überwachung für zuverlässige Projektergebnisse.',
+
+                // Capabilities
+                'capabilities-h2': 'Unterstützte Mikro/Nanofabrikationsfähigkeiten (Anlagenzugang)', 'capabilities-intro': 'Wir ermöglichen den Zugang zu fortschrittlichen F&E- sowie Pilot-/Volumenproduktionslinien (einschließlich 6-Zoll F&E und 8-Zoll Pilotlinien). Unser Netzwerk unterstützt ein umfassendes Angebot an Prozesspaketen und Geräten:',
+                'cap-group-1-h3': 'Lithographie', 'cap-group-1-ul': `<li>**Ausrüstung:** Doppelseitiger Kontaktbelichter (Double-side Contact Aligner), Stepper-Projektionssystem (Stepper Projection System).</li><li>**Fortgeschritten:** Elektronenstrahllithographie (E-beam).</li><li>**Anwendung:** Strukturierung für MEMS, III-V-Bauelemente und Spezialstrukturen.</li>`,
+                'cap-group-2-h3': 'Abscheidung (Deposition)', 'cap-group-2-ul': `<li>**PVD:** Magnetron-Sputtern (Magnetron Sputtering), Elektronenstrahlverdampfung (E-beam Evaporation), Thermische Verdampfung (Thermal Evaporation), Gepulste Laserabscheidung (PLD).</li><li>**CVD:** PECVD, ICPCVD, LPCVD, MPCVD.</li><li>**Spezial:** Unterstützung für Atomlagenabscheidung (ALD) für Präzisionsfilme.</li>`,
+                'cap-group-3-h3': 'Plasmaätzen (Plasma Etching)', 'cap-group-3-ul': `<li>**Ausrüstung:** RIE, ICP, NLD-ICP.</li><li>**Präzision:** Ionenstrahlätzen (IBE), Trimming.</li><li>**Tiefenätzen:** Deep RIE (DRIE) für Strukturen mit hohem Aspektverhältnis, VHF-Ätzen (Very High Frequency).</li>`,
+                'cap-group-4-h3': 'Montage & Verpackung (Assembly & Packaging)', 'cap-group-4-ul': `<li>**Wafer-Ebene:** Wafer-Bonding (Si-Glas, Au-In, Au-Sn usw.), TSV/TGV (hohes Aspektverhältnis).</li><li>**Chip-Ebene:** Flip-Chip-Bonding (Kopf-an-Kopf), Die-Attach (Chipbefestigung), Drahtbonden (Wire Bonding), Dosieren (Dispensing).</li><li>**Fertigstellung:** Verdünnen (Thinning), CMP, Trennen (Dicing), integrierte Verpackungslösungen.</li>`,
+                'cap-group-5-h3': 'Analytik & Messtechnik (Analytics & Metrology)', 'cap-group-5-ul': `<li>**Dicke/Profil:** Profilometer, Schichtdickenmessung (Film Thickness Measurement).</li><li>**Material/Struktur:** Röntgen (X-ray), AFM, Ultraschallprüfung (Ultrasonic Testing).</li><li>**Elektrisch/Mechanisch:** I-V/C-V-Tests, Zugversuche (Tensile Testing), elektrische Charakterisierung.</li>`,
+                'cap-group-6-h3': 'Nasschemie & Substratvorbereitung (Wet Chemistry & Substrate Prep)', 'cap-group-6-ul': `<li>**Epitaxie-Unterstützung:** Zugang zu GaN-, InP-, GaAs-Epitaxialwachstum und Unterstützung für Si/Saphir/Glas-Substrate.</li><li>**Nassprozesse:** Standard-Säure-/Lösungsmittel-Nassbänke für Ätz-, Reinigungs- und Lift-off-Prozesse.</li><li>**Spezialisiertes Ätzen:** Nasschemisches Ätzen zur Entfernung spezifischer Materialien (z. B. Silizium, Oxid).</li>`,
+                'cap-group-7-h3': 'Fortgeschrittene Anwendungen (Advanced Applications)', 'cap-group-7-ul': `<li>**Piezoelektrische MEMS:** (002) bevorzugte AlScN-Verarbeitung (mit Ionenfräsen) und PZT.</li><li>**Verbindungshalbleiter:** GaN HEMT (D/E-Mode, DCFL/CMOS), Micro-LED (8" monolithische Integration).</li><li>**Integration:** Chiplet-Technologie, Heterogene Integration.</li><li>**Quanten:** MEMS-basierte Atom-Dampfzellen-Technologie (Rb, Cs, Puffergasbefüllung).</li>`,
+                'hero-title': 'Mikro/Nanofabrikationsberatung', 'hero-subtitle': 'Nutzung eines globalen Netzwerks für kosteneffiziente Prozessvermittlung.', 'title': 'Mikro/Nanofabrikationsberatung | BitWerk IT',
+                'nav-advantages': 'Vorteile', 'nav-capabilities': 'Fähigkeiten', 'nav-contact': 'Kontakt', 'nav-impressum': 'Impressum', 'nav-privacy': 'Datenschutz', 'sticky-nav-advantages': 'Vorteile', 'sticky-nav-capabilities': 'Fähigkeiten', 'sticky-nav-contact': 'Kontakt', 'sticky-nav-impressum': 'Impressum', 'sticky-nav-privacy': 'Datenschutz'
             }
         };
-        
+
         // --- 模态窗口内容生成函数 ---
         function generateLegalContent(type, lang) {
             const texts = LEGAL_TEXTS[lang];
@@ -381,11 +379,12 @@
             const modal = document.getElementById(`${type}-modal`);
             const currentLang = document.documentElement.lang || 'en';
             
-            // 确保内容是最新的语言
             document.getElementById(`${type}-content`).innerHTML = generateLegalContent(type, currentLang);
             
             modal.style.display = 'flex';
             document.body.classList.add('no-scroll');
+            // Prevent scrolling of the modal content itself if necessary
+            document.querySelector('.modal-content').scrollTop = 0;
         }
 
         function closeModal(type) {
@@ -396,7 +395,7 @@
 
         // --- Cookie Banner 控制函数 ---
         function checkCookieConsent() {
-            if (localStorage.getItem('cookieConsent') !== 'accepted') {
+            if (localStorage.getItem('cookieConsent') !== 'accepted' && localStorage.getItem('cookieConsent') !== 'declined') {
                 document.getElementById('cookie-banner').style.display = 'flex';
                 document.body.classList.add('no-scroll');
             } else {
@@ -405,48 +404,67 @@
         }
 
         function acceptCookies(accepted) {
-            // 在实际项目中，此处应根据 accepted 的值设置不同的 cookie
             if (accepted) {
                 localStorage.setItem('cookieConsent', 'accepted');
-                // 实际项目中：加载所有第三方脚本/分析工具
             } else {
                 localStorage.setItem('cookieConsent', 'declined');
-                // 实际项目中：只允许必要的 cookie
             }
             document.getElementById('cookie-banner').style.display = 'none';
             document.body.classList.remove('no-scroll');
         }
         
-        // --- 语言切换函数 (包含模态窗口和 Cookie Banner 的语言更新) ---
+        // --- 语言切换函数 ---
         function setLanguage(lang) {
-            const generalTexts = lang === 'de' ? de_texts : en_texts;
-            const legalTexts = LEGAL_TEXTS[lang];
-
-            // ... (更新其他非法律部分的代码不变, 沿用上一步的实现) ...
+            const texts = LEGAL_TEXTS[lang]; // Use combined texts for simplicity
             
-            // 更新非法律部分
-            const updateNonLegalContent = (texts) => {
-                // (此处省略了上一步中的所有非法律部分的更新代码，因为它们是重复的)
-                // (在实际代码中，这些更新函数应该在这里被调用或重写)
-            };
+            // Hero and Title
+            document.getElementById('title').textContent = texts['title'];
+            document.getElementById('hero-title').textContent = texts['hero-title'];
+            document.getElementById('hero-subtitle').textContent = texts['hero-subtitle'];
             
-            // 示例：更新 Cookie Banner 文本
-            document.getElementById('cookie-text').textContent = legalTexts['cookie-text'];
-            document.getElementById('cookie-accept').textContent = legalTexts['cookie-accept'];
-            document.getElementById('cookie-decline').textContent = legalTexts['cookie-decline'];
+            // Navigation Links (Main and Sticky)
+            const navElements = ['advantages', 'capabilities', 'contact', 'impressum', 'privacy'];
+            navElements.forEach(key => {
+                document.getElementById(`nav-${key}`).textContent = texts[`nav-${key}`];
+                document.getElementById(`sticky-nav-${key}`).textContent = texts[`sticky-nav-${key}`];
+            });
 
-            // 示例：更新 Contact 文本
-            document.getElementById('contact-p2').innerHTML = legalTexts['contact-p2'] + ` <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a>`;
-            document.getElementById('contact-p3').textContent = legalTexts['contact-p3'] + ` ${CONTACT_INFO.phone}`;
-            document.getElementById('footer-text').textContent = legalTexts['footer-text'];
-            document.getElementById('footer-impressum').textContent = legalTexts['footer-impressum'];
-            document.getElementById('footer-privacy').textContent = legalTexts['footer-privacy'];
+            // Advantages
+            document.getElementById('advantages-h2').textContent = texts['advantages-h2'];
+            document.getElementById('adv-1-h3').textContent = texts['adv-1-h3'];
+            document.getElementById('adv-1-p').textContent = texts['adv-1-p'];
+            document.getElementById('adv-2-h3').textContent = texts['adv-2-h3'];
+            document.getElementById('adv-2-p').textContent = texts['adv-2-p'];
+            document.getElementById('adv-3-h3').textContent = texts['adv-3-h3'];
+            document.getElementById('adv-3-p').textContent = texts['adv-3-p'];
 
+            // Capabilities
+            document.getElementById('capabilities-h2').textContent = texts['capabilities-h2'];
+            document.getElementById('capabilities-intro').textContent = texts['capabilities-intro'];
+            for (let i = 1; i <= 7; i++) {
+                document.getElementById(`cap-group-${i}-h3`).textContent = texts[`cap-group-${i}-h3`];
+                document.getElementById(`cap-group-${i}-ul`).innerHTML = texts[`cap-group-${i}-ul`];
+            }
 
-            // Set the lang attribute
+            // Contact
+            document.getElementById('contact-h2').textContent = texts['contact-h2'];
+            document.getElementById('contact-p-1').textContent = texts['contact-p-1'];
+            document.getElementById('contact-p-2').innerHTML = texts['contact-p2'] + ` <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a>`;
+            document.getElementById('contact-p-3').textContent = texts['contact-p3'] + ` ${CONTACT_INFO.phone}`;
+
+            // Footer
+            document.getElementById('footer-text').textContent = texts['footer-text'];
+            document.getElementById('footer-impressum').textContent = texts['footer-impressum'];
+            document.getElementById('footer-privacy').textContent = texts['footer-privacy'];
+            
+            // Cookie Banner
+            document.getElementById('cookie-text').textContent = texts['cookie-text'];
+            document.getElementById('cookie-accept').textContent = texts['cookie-accept'];
+            document.getElementById('cookie-decline').textContent = texts['cookie-decline'];
+
             document.documentElement.lang = lang;
             
-            // 如果模态窗口打开，则刷新其内容
+            // If legal modals are open, refresh their content
             if (document.getElementById('impressum-modal').style.display === 'flex') {
                 document.getElementById('impressum-content').innerHTML = generateLegalContent('impressum', lang);
             }
@@ -482,7 +500,7 @@
         window.onload = () => {
             calculateNavOffset();
             setLanguage('en'); // Default to English on load
-            checkCookieConsent(); // 检查并显示 Cookie Banner
+            checkCookieConsent(); // Check and display Cookie Banner
             handleStickyNav(); 
         };
     </script>
