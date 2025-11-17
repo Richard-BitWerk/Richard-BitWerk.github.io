@@ -1,93 +1,232 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微纳加工咨询服务 | 德国 Kleinunternehmer</title>
-    <meta name="description" content="专业微纳加工咨询，提供具有竞争力的价格、更快交付和质量保证。利用全球网络和多年经验，为您匹配最合适的加工方。">
+    <title id="title">Micro/Nanofabrication Consultation | German Kleinunternehmer</title>
+    <meta name="description" content="Expert micro/nanofabrication consultation based in Germany. Leveraging a global network and deep expertise for cost-effective, fast, and high-quality process matching.">
     <style>
         body { font-family: 'Arial', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
         header { background: #004d99; color: white; padding: 20px 0; text-align: center; }
         header h1 { margin: 0; font-size: 2.5em; }
         nav { background: #333; color: white; text-align: center; padding: 10px 0; }
         nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px 0; }
-        .feature-box { background: white; padding: 20px; margin-bottom: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .cta { text-align: center; padding: 30px; background: #e6f7ff; margin-bottom: 20px; }
-        .cta a { background: #ff9900; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        footer { background: #333; color: white; text-align: center; padding: 15px 0; margin-top: 20px; }
-        /* 法律信息链接样式 */
+        .container { width: 85%; max-width: 1100px; margin: auto; overflow: hidden; padding: 20px 0; }
+        .feature-box { background: white; padding: 25px; margin-bottom: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .lang-switch { position: absolute; top: 15px; right: 20px; }
+        .lang-switch button { background: #ff9900; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; }
+        footer { background: #333; color: white; text-align: center; padding: 15px 0; margin-top: 20px; font-size: 0.9em; }
         footer a { color: #ccc; margin: 0 10px; text-decoration: none; }
     </style>
 </head>
 <body>
 
+    <div class="lang-switch">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('de')">Deutsch</button>
+    </div>
+
     <header>
-        <h1>微纳加工咨询：全球网络，本地服务</h1>
-        <p>🇩🇪 德国 Kleinunternehmer 专业咨询</p>
+        <h1 id="header-title">Micro/Nanofabrication Consultation | Global Network, Local Expertise</h1>
+        <p id="header-subtitle">German Kleinunternehmer (Small Business Operator)</p>
     </header>
 
     <nav>
-        <a href="#services">服务优势</a>
-        <a href="#process">工作流程</a>
-        <a href="#contact">联系我们</a>
-        <a href="impressum.html">法律声明 (Impressum)</a>
-        <a href="privacy.html">隐私政策 (Datenschutz)</a>
+        <a href="#services" id="nav-services">Services</a>
+        <a href="#capabilities" id="nav-capabilities">Capabilities</a>
+        <a href="#contact" id="nav-contact">Contact</a>
+        <a href="impressum.html" id="nav-impressum">Legal Notice (Impressum)</a>
+        <a href="privacy.html" id="nav-privacy">Privacy Policy</a>
     </nav>
 
     <div class="container">
         
+        <section id="intro" class="feature-box">
+            <h2 id="intro-h2">Your Expert Partner in Micro/Nanofabrication</h2>
+            <p id="intro-p">Based in Germany, we bridge the gap between your micro/nanofabrication needs and the most suitable global fabrication facilities. We leverage years of expertise and a vast, verifiable network to ensure your projects are completed efficiently and reliably.</p>
+        </section>
+
         <section id="services">
-            <h2>⭐ 我们的核心竞争力</h2>
-            <p>我们利用多年的微纳加工经验和覆盖全球的机构网络，为您的定制需求匹配最优加工方，确保项目成功。</p>
+            <h2 id="services-h2">🎯 Competitive Advantages</h2>
             
             <div class="feature-box">
-                <h3>💰 更具竞争力的价格 (Wettbewerbsfähiger Preis)</h3>
-                <p>凭借广泛的网络和议价能力，我们能为您争取到更优惠的加工成本。</p>
+                <h3 id="feature-1-h3">Cost-Competitive Matching</h3>
+                <p id="feature-1-p">We efficiently connect you with suitable, high-quality fabrication partners worldwide, which often results in more competitive pricing for your custom projects.</p>
             </div>
             
             <div class="feature-box">
-                <h3>⚡ 更快交付 (Schnellere Lieferung)</h3>
-                <p>精准匹配闲置资源，优化排期，大大缩短项目交付周期。</p>
+                <h3 id="feature-2-h3">Faster Project Delivery</h3>
+                <p id="feature-2-p">Our extensive network allows us to quickly identify and secure manufacturing capacity, thereby helping to accelerate project start and delivery timelines.</p>
             </div>
             
             <div class="feature-box">
-                <h3>✅ 质量保证 (Qualitätsgarantie)</h3>
-                <p>严格筛选合作方，并凭借专业知识提供全程质量监控和技术支持。</p>
+                <h3 id="feature-3-h3">Reliable Quality Assurance</h3>
+                <p id="feature-3-p">Our consultation is backed by years of micro/nanofabrication experience, allowing for stringent selection of manufacturing partners and technical oversight to ensure quality and reliability.</p>
             </div>
         </section>
 
-        <section id="process">
-            <h2>🛠️ 合作流程</h2>
-            <ol>
-                <li>**需求提交：** 客户发送详细的微纳加工需求和规格。</li>
-                <li>**专业分析与匹配：** 我们利用知识和网络，锁定全球最合适的加工机构。</li>
-                <li>**价格与排期确认：** 协商最具优势的价格和交付时间。</li>
-                <li>**加工与监控：** 加工方开始工作，我们进行专业跟进和质量保证。</li>
-                <li>**交付与支持：** 成品交付给客户，并提供后续咨询服务。</li>
-            </ol>
+        <section id="capabilities" class="feature-box">
+            <h2 id="capabilities-h2">🔬 Our Supported Fabrication Capabilities</h2>
+            <p id="capabilities-p-brief">
+                We facilitate access to a wide range of advanced micro/nanofabrication technologies, including, but not limited to:
+                <ul>
+                    [cite_start]<li>**MEMS & III-V Optoelectronics:** Full-process capability, from epitaxy (GaN, InP, GaAs) to device fabrication and packaging[cite: 993, 994, 996].</li>
+                    [cite_start]<li>**Compound Semiconductors:** Expertise in technologies like GaN HEMT and Micro-LED displays[cite: 973, 974, 979, 980].</li>
+                    [cite_start]<li>**Advanced Integration:** Including Heterogeneous Integration, Quantum Devices, and Magnetic Devices[cite: 989, 990, 1044].</li>
+                </ul>
+            </p>
+            <p><strong id="capabilities-more">For detailed process and equipment information, please visit our dedicated Capabilities page:</strong> <a href="capabilities.html" id="capabilities-link">View Full Capabilities →</a></p>
         </section>
         
-        <div class="cta">
-            <h2>🚀 立即咨询，启动您的微纳项目!</h2>
-            <a href="mailto:your.email@example.com">联系我们获取报价</a>
-        </div>
-        
-        <section id="contact">
-            <h2>📞 联系方式</h2>
-            <p>电子邮件：your.email@example.com</p>
-            <p>电话：+49 XXX XXXX</p>
-            </section>
+        <section id="contact" class="feature-box">
+            <h2 id="contact-h2">✉️ Contact Us</h2>
+            <p id="contact-p-1">Ready to start your micro/nanofabrication project? Contact us today for a consultation.</p>
+            <p id="contact-p-2">Email: your.email@example.com</p>
+            <p id="contact-p-3">Phone: +49 XXX XXXX</p>
+        </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2025 [您的名字/公司名称] - 德国 Kleinunternehmer</p>
+        <p id="footer-text">&copy; 2025 [Your Name/Company Name] - German Kleinunternehmer</p>
         <div>
-            <a href="impressum.html">法律声明 (Impressum)</a> | 
-            <a href="privacy.html">隐私政策 (Datenschutz)</a>
+            <a href="impressum.html" id="footer-impressum">Legal Notice (Impressum)</a> | 
+            <a href="privacy.html" id="footer-privacy">Privacy Policy (Datenschutz)</a>
         </div>
     </footer>
 
+    <script>
+        // German Translation Texts
+        const de_texts = {
+            'title': 'Mikro/Nanofabrikationsberatung | Deutscher Kleinunternehmer',
+            'header-title': 'Mikro/Nanofabrikationsberatung | Globales Netzwerk, Lokale Expertise',
+            'header-subtitle': 'Deutscher Kleinunternehmer',
+            'nav-services': 'Vorteile',
+            'nav-capabilities': 'Fähigkeiten',
+            'nav-contact': 'Kontakt',
+            'nav-impressum': 'Impressum',
+            'nav-privacy': 'Datenschutz',
+            'intro-h2': 'Ihr Experte für Mikro/Nanofabrikation',
+            'intro-p': 'Mit Sitz in Deutschland überbrücken wir die Lücke zwischen Ihrem Mikro-/Nanofabrikationsbedarf und den weltweit am besten geeigneten Fertigungsstätten. Wir nutzen jahrelange Erfahrung und ein großes, überprüfbares Netzwerk, um eine effiziente und zuverlässige Projektabwicklung zu gewährleisten.',
+            'services-h2': '🎯 Wettbewerbsvorteile',
+            'feature-1-h3': 'Wettbewerbsfähige Preise',
+            'feature-1-p': 'Wir bringen Sie effizient mit geeigneten, qualitativ hochwertigen Fertigungspartnern weltweit zusammen, was oft zu wettbewerbsfähigeren Preisen für Ihre kundenspezifischen Projekte führt.',
+            'feature-2-h3': 'Schnellere Projektlieferung',
+            'feature-2-p': 'Unser umfangreiches Netzwerk ermöglicht es uns, Fertigungskapazitäten schnell zu identifizieren und zu sichern, wodurch Projektstart- und Lieferzeiten verkürzt werden.',
+            'feature-3-h3': 'Zuverlässige Qualitätssicherung',
+            'feature-3-p': 'Unsere Beratung stützt sich auf jahrelange Erfahrung in der Mikro-/Nanofabrikation und ermöglicht eine strenge Auswahl der Fertigungspartner sowie eine technische Überwachung zur Gewährleistung von Qualität und Zuverlässigkeit.',
+            'capabilities-h2': '🔬 Unterstützte Fertigungsfähigkeiten',
+            'capabilities-p-brief': 'Wir ermöglichen den Zugang zu einer breiten Palette fortschrittlicher Mikro-/Nanofabrikationstechnologien, einschließlich, aber nicht beschränkt auf:',
+            'capabilities-more': 'Für detaillierte Prozess- und Geräteinformationen besuchen Sie bitte unsere spezielle Seite zu den Fertigungsfähigkeiten:',
+            'capabilities-link': 'Vollständige Fähigkeiten anzeigen →',
+            'contact-h2': '✉️ Kontaktieren Sie uns',
+            'contact-p-1': 'Sind Sie bereit, Ihr Mikro-/Nanofabrikationsprojekt zu starten? Kontaktieren Sie uns noch heute für eine Beratung.',
+            'contact-p-2': 'E-Mail:',
+            'contact-p-3': 'Telefon:',
+            'footer-text': '© 2025 [Ihr Name/Firmenname] - Deutscher Kleinunternehmer',
+            'footer-impressum': 'Impressum',
+            'footer-privacy': 'Datenschutz',
+        };
+
+        const en_texts = {
+            'title': 'Micro/Nanofabrication Consultation | German Kleinunternehmer',
+            'header-title': 'Micro/Nanofabrication Consultation | Global Network, Local Expertise',
+            'header-subtitle': 'German Kleinunternehmer (Small Business Operator)',
+            'nav-services': 'Services',
+            'nav-capabilities': 'Capabilities',
+            'nav-contact': 'Contact',
+            'nav-impressum': 'Legal Notice (Impressum)',
+            'nav-privacy': 'Privacy Policy',
+            'intro-h2': 'Your Expert Partner in Micro/Nanofabrication',
+            'intro-p': 'Based in Germany, we bridge the gap between your micro/nanofabrication needs and the most suitable global fabrication facilities. We leverage years of expertise and a vast, verifiable network to ensure your projects are completed efficiently and reliably.',
+            'services-h2': '🎯 Competitive Advantages',
+            'feature-1-h3': 'Cost-Competitive Matching',
+            'feature-1-p': 'We efficiently connect you with suitable, high-quality fabrication partners worldwide, which often results in more competitive pricing for your custom projects.',
+            'feature-2-h3': 'Faster Project Delivery',
+            'feature-2-p': 'Our extensive network allows us to quickly identify and secure manufacturing capacity, thereby helping to accelerate project start and delivery timelines.',
+            'feature-3-h3': 'Reliable Quality Assurance',
+            'feature-3-p': 'Our consultation is backed by years of micro/nanofabrication experience, allowing for stringent selection of manufacturing partners and technical oversight to ensure quality and reliability.',
+            'capabilities-h2': '🔬 Our Supported Fabrication Capabilities',
+            'capabilities-p-brief': 'We facilitate access to a wide range of advanced micro/nanofabrication technologies, including, but not limited to:',
+            'capabilities-more': 'For detailed process and equipment information, please visit our dedicated Capabilities page:',
+            'capabilities-link': 'View Full Capabilities →',
+            'contact-h2': '✉️ Contact Us',
+            'contact-p-1': 'Ready to start your micro/nanofabrication project? Contact us today for a consultation.',
+            'contact-p-2': 'Email:',
+            'contact-p-3': 'Phone:',
+            'footer-text': '© 2025 [Your Name/Company Name] - German Kleinunternehmer',
+            'footer-impressum': 'Legal Notice (Impressum)',
+            'footer-privacy': 'Privacy Policy (Datenschutz)',
+        };
+
+        function setLanguage(lang) {
+            const texts = lang === 'de' ? de_texts : en_texts;
+            const linkText = lang === 'de' ? 'Vollständige Fähigkeiten anzeigen →' : 'View Full Capabilities →';
+
+            document.getElementById('title').textContent = texts['title'];
+            document.getElementById('header-title').textContent = texts['header-title'];
+            document.getElementById('header-subtitle').textContent = texts['header-subtitle'];
+            
+            // Navigation
+            document.getElementById('nav-services').textContent = texts['nav-services'];
+            document.getElementById('nav-capabilities').textContent = texts['nav-capabilities'];
+            document.getElementById('nav-contact').textContent = texts['nav-contact'];
+            document.getElementById('nav-impressum').textContent = texts['nav-impressum'];
+            document.getElementById('nav-privacy').textContent = texts['nav-privacy'];
+
+            // Content
+            document.getElementById('intro-h2').textContent = texts['intro-h2'];
+            document.getElementById('intro-p').textContent = texts['intro-p'];
+            document.getElementById('services-h2').textContent = texts['services-h2'];
+            document.getElementById('feature-1-h3').textContent = texts['feature-1-h3'];
+            document.getElementById('feature-1-p').textContent = texts['feature-1-p'];
+            document.getElementById('feature-2-h3').textContent = texts['feature-2-h3'];
+            document.getElementById('feature-2-p').textContent = texts['feature-2-p'];
+            document.getElementById('feature-3-h3').textContent = texts['feature-3-h3'];
+            document.getElementById('feature-3-p').textContent = texts['feature-3-p'];
+            document.getElementById('capabilities-h2').textContent = texts['capabilities-h2'];
+            document.getElementById('capabilities-more').textContent = texts['capabilities-more'];
+            document.getElementById('capabilities-link').textContent = linkText;
+            
+            // Contact
+            document.getElementById('contact-h2').textContent = texts['contact-h2'];
+            document.getElementById('contact-p-1').textContent = texts['contact-p-1'];
+            document.getElementById('contact-p-2').textContent = texts['contact-p-2'] + ' your.email@example.com';
+            document.getElementById('contact-p-3').textContent = texts['contact-p-3'] + ' +49 XXX XXXX';
+            
+            // Footer
+            document.getElementById('footer-text').textContent = texts['footer-text'];
+            document.getElementById('footer-impressum').textContent = texts['footer-impressum'];
+            document.getElementById('footer-privacy').textContent = texts['footer-privacy'];
+            
+            // Set the lang attribute for accessibility and browser behavior
+            document.documentElement.lang = lang;
+            
+            // Update the Capabilities brief dynamically for citation
+            const capabilitiesBrief = document.getElementById('capabilities-p-brief');
+            if (lang === 'de') {
+                capabilitiesBrief.innerHTML = `
+                    Wir ermöglichen den Zugang zu einer breiten Palette fortschrittlicher Mikro-/Nanofabrikationstechnologien, einschließlich, aber nicht beschränkt auf:
+                    <ul>
+                        [cite_start]<li>**MEMS & III-V Optoelektronik:** Vollständige Prozessfähigkeit, von der Epitaxie (GaN, InP, GaAs) bis zur Bauelementefertigung und Verpackung[cite: 993, 994, 996].</li>
+                        [cite_start]<li>**Verbindungshalbleiter:** Expertise in Technologien wie GaN HEMT und Micro-LED Displays[cite: 973, 974, 979, 980].</li>
+                        [cite_start]<li>**Fortgeschrittene Integration:** Einschließlich Heterogener Integration, Quantenbauelemente und Magnetische Bauelemente[cite: 989, 990, 1044].</li>
+                    </ul>
+                `;
+            } else { // English
+                capabilitiesBrief.innerHTML = `
+                    We facilitate access to a wide range of advanced micro/nanofabrication technologies, including, but not limited to:
+                    <ul>
+                        [cite_start]<li>**MEMS & III-V Optoelectronics:** Full-process capability, from epitaxy (GaN, InP, GaAs) to device fabrication and packaging[cite: 993, 994, 996].</li>
+                        [cite_start]<li>**Compound Semiconductors:** Expertise in technologies like GaN HEMT and Micro-LED displays[cite: 973, 974, 979, 980].</li>
+                        [cite_start]<li>**Advanced Integration:** Including Heterogeneous Integration, Quantum Devices, and Magnetic Devices[cite: 989, 990, 1044].</li>
+                    </ul>
+                `;
+            }
+        }
+
+        // Default to English on load
+        window.onload = () => setLanguage('en');
+    </script>
 </body>
 </html>
