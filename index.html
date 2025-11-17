@@ -15,8 +15,8 @@
             --secondary-color: #FF9900; /* 强调橙 */
             --text-color: #333333;
             --background-light: #f9f9f9;
-            --background-dark: #333333;
-            --border-radius: 6px;
+            --background-dark: #2c3e50; /* 深灰蓝，更专业 */
+            --border-radius: 4px;
         }
 
         body {
@@ -26,7 +26,7 @@
             padding: 0;
             background-color: var(--background-light);
             color: var(--text-color);
-            scroll-behavior: smooth; /* 平滑滚动 */
+            scroll-behavior: smooth;
         }
 
         /* --- 容器和区块 --- */
@@ -58,7 +58,7 @@
         h2::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 50px;
             height: 3px;
             background: var(--secondary-color);
             margin: 10px auto 0;
@@ -66,23 +66,24 @@
         
         /* --- 头部 (Hero Section) --- */
         #hero {
-            background: var(--primary-color);
+            background: linear-gradient(rgba(0, 71, 171, 0.9), rgba(0, 71, 171, 0.9)), url('path/to/your/tech-background-image.jpg'); /* 建议使用科技感背景图 */
+            background-size: cover;
             color: white;
-            padding: 100px 0 80px;
+            padding: 120px 0 100px;
             text-align: center;
             position: relative;
         }
 
         #hero h1 {
             color: white;
-            font-size: 3em;
+            font-size: 3.2em;
             margin-bottom: 10px;
             font-weight: 700;
         }
 
         #hero p {
-            font-size: 1.2em;
-            opacity: 0.8;
+            font-size: 1.3em;
+            opacity: 0.9;
         }
 
         /* --- 语言切换 --- */
@@ -105,12 +106,11 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* --- 导航栏 (Primary & Sticky) --- */
+        /* --- 导航栏 (Sticky Navbar) --- */
         .navbar {
             background: var(--background-dark);
             color: white;
             text-align: center;
-            transition: top 0.3s ease-in-out;
             z-index: 1000;
         }
 
@@ -118,7 +118,13 @@
             position: fixed;
             top: 0;
             width: 100%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            animation: slideDown 0.3s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from { top: -60px; }
+            to { top: 0; }
         }
         
         .navbar a {
@@ -134,7 +140,7 @@
             background-color: var(--primary-color);
             color: white;
         }
-
+        
         /* --- 竞争优势 --- */
         #advantages .grid {
             display: grid;
@@ -146,9 +152,9 @@
         .advantage-card {
             background: white;
             padding: 30px;
+            border-top: 5px solid var(--primary-color);
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .advantage-card h3 {
@@ -157,41 +163,48 @@
             color: var(--secondary-color);
         }
         
-        /* --- Capabilities 区块 --- */
+        /* --- Capabilities 区块 - 结构化技术规范 --- */
         #capabilities {
             background-color: white;
-            border-top: 1px solid #ddd;
+            padding: 40px 0;
         }
 
-        .capabilities-list h3 {
-            border-left: 5px solid var(--primary-color);
-            padding-left: 10px;
-            margin-top: 30px;
-            margin-bottom: 15px;
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .capability-category {
+            background: var(--background-light);
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .capability-category h3 {
+            color: var(--background-dark);
+            margin-top: 0;
+            font-size: 1.3em;
             font-weight: 500;
         }
         
-        .capabilities-list ul {
+        .capability-category ul {
             list-style: none;
             padding-left: 0;
-            margin-bottom: 30px;
+            font-size: 0.95em;
         }
         
-        .capabilities-list li {
-            background: var(--background-light);
-            padding: 10px 15px;
-            margin-bottom: 5px;
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
+        .capability-category li {
+            padding: 5px 0;
+            border-bottom: 1px dotted #ddd;
         }
         
-        .capabilities-list li::before {
-            content: '✓';
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-right: 10px;
+        .capability-category li:last-child {
+            border-bottom: none;
         }
+
 
         /* --- 联系方式 --- */
         #contact {
@@ -282,38 +295,78 @@
             </div>
         </section>
 
-        <section id="capabilities" class="capabilities-list">
-            <h2 id="capabilities-h2">Supported Micro/Nanofabrication Capabilities</h2>
-            <p id="capabilities-intro">We facilitate access to advanced R&D and pilot/volume production lines (including 6-inch R&D and 8-inch pilot lines). Our network supports a comprehensive range of process packages:</p>
+        <section id="capabilities">
+            <h2 id="capabilities-h2">Supported Micro/Nanofabrication Capabilities (Facility Access)</h2>
+            <p id="capabilities-intro" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+                We facilitate access to advanced R&D and pilot/volume production lines (including 6-inch R&D and 8-inch pilot lines). Our network supports a comprehensive range of process packages and equipment:
+            </p>
 
-            <h3 id="cap-group-1-h3">Core Facility & Process Coverage</h3>
-            <ul id="cap-group-1-ul">
-                <li>**Line Access:** 6-inch R&D lines and 8-inch pilot/volume production lines.</li>
-                <li>**Epitaxy (External Access):** GaN, InP, GaAs, and support for Si/Sapphire/etc. substrates.</li>
-                <li>**Core Processes:** Lithography (Double-side, Stepper, E-beam), Etching (RIE, ICP, IBE, DRIE, VHF, Trimming), CVD, PVD (Sputtering, E-beam, Thermal, PLD), Ion Implantation.</li>
-            </ul>
+            <div class="capabilities-grid">
+                
+                <div class="capability-category">
+                    <h3 id="cap-group-1-h3">Lithography</h3>
+                    <ul id="cap-group-1-ul">
+                        <li>**Equipment:** Double-side Contact Aligner (双面接触式), Stepper Projection System (步进式投影).</li>
+                        <li>**Advanced:** Electron Beam Lithography (E-beam, 电子束光刻).</li>
+                        <li>**Application:** Patterning for MEMS, III-V devices, and specialized structures.</li>
+                    </ul>
+                </div>
+                
+                <div class="capability-category">
+                    <h3 id="cap-group-2-h3">Deposition</h3>
+                    <ul id="cap-group-2-ul">
+                        <li>**PVD:** Magnetron Sputtering (磁控溅射), E-beam Evaporation (电子束蒸发), Thermal Evaporation (热蒸发), Pulsed Laser Deposition (PLD, 脉冲激光沉积).</li>
+                        <li>**CVD:** PECVD, ICPCVD, LPCVD, MPCVD.</li>
+                        <li>**Special:** Atomic Layer Deposition (ALD) support for precision film growth.</li>
+                    </ul>
+                </div>
 
-            <h3 id="cap-group-2-h3">Compound Semiconductors & Optoelectronics</h3>
-            <ul id="cap-group-2-ul">
-                <li>**GaN HEMT:** Full-flow process for D-mode and E-mode devices, supporting 2", 4", 6", and 8" wafers, including monolithic DCFL/CMOS integration.</li>
-                <li>**Micro-LED Displays:** Access to 8" Micro-LED process lines, covering full flow and wafer-level monolithic integration of pixels and drivers.</li>
-                <li>**III-V Devices:** Fabrication and packaging support for various III-V optoelectronic devices.</li>
-            </ul>
+                <div class="capability-category">
+                    <h3 id="cap-group-3-h3">Plasma Etching</h3>
+                    <ul id="cap-group-3-ul">
+                        <li>**Equipment:** RIE, ICP, NLD-ICP.</li>
+                        <li>**Precision:** Ion Beam Etching (IBE), Trimming.</li>
+                        <li>**Deep Etching:** Deep RIE (DRIE) for high aspect ratio structures, VHF (Very High Frequency) etching.</li>
+                    </ul>
+                </div>
 
-            <h3 id="cap-group-3-h3">Advanced MEMS and Microsystems</h3>
-            <ul id="cap-group-3-ul">
-                <li>**Piezoelectric MEMS (AlScN/PZT):** Process for high-performance (002) AlScN (with ion milling) and PZT (including (110) preferred). Applications include FBAR filters, ultrasonic transducers, and gyroscopes.</li>
-                <li>**Acoustic Devices:** Bulk/Surface Acoustic Wave Resonators (Filters).</li>
-                <li>**Special Structures:** Wafer bonding (Si-Glass, Au-In, Au-Sn, etc.) and release cavity structures (Front/Back/Sealed).</li>
-                <li>**Quantum Devices:** MEMS-based Atomic Vapor Cell technology for chip-level atomic clocks, gyroscopes, and magnetometers.</li>
-            </ul>
+                <div class="capability-category">
+                    <h3 id="cap-group-4-h3">Assembly & Packaging</h3>
+                    <ul id="cap-group-4-ul">
+                        <li>**Wafer Level:** Wafer Bonding (Si-Glass, Au-In, Au-Sn, etc.), TSV/TGV (high aspect ratio).</li>
+                        <li>**Chip Level:** Flip-chip bonding (倒装焊), Die Attach (贴片), Wire Bonding (引线键合), Dispensing (点胶).</li>
+                        <li>**Finishing:** Thinning (减薄), CMP, Dicing (切割), Integrated Packaging Solutions.</li>
+                    </ul>
+                </div>
 
-            <h3 id="cap-group-4-h3">Integration and Specialized Processes</h3>
-            <ul id="cap-group-4-ul">
-                <li>**Heterogeneous Integration:** TSV/TGV (Through-Silicon/Glass Via) with high aspect ratio electroplating, Chiplet technology, horizontal array splicing, and advanced bonding (Anodic/Eutectic/Hybrid).</li>
-                <li>**Magnetic Devices:** Magnetic Tunnel Junction (MTJ) processing using double-layer photoresist stripping for storage, sensors, and spintronic devices.</li>
-                <li>**Packaging:** Flip-chip bonding, wire bonding, dispensing, thinning, CMP, dicing, and integrated packaging solutions.</li>
-            </ul>
+                <div class="capability-category">
+                    <h3 id="cap-group-5-h3">Analytics & Metrology</h3>
+                    <ul id="cap-group-5-ul">
+                        <li>**Thickness/Profile:** Profilometer (轮廓仪), Film Thickness Measurement (膜厚仪).</li>
+                        <li>**Material/Structure:** X-ray, AFM, Ultrasonic Testing (超声波).</li>
+                        <li>**Electrical/Mechanical:** I-V/C-V testing, Tensile Testing (拉力测试), Electrical characterization.</li>
+                    </ul>
+                </div>
+
+                <div class="capability-category">
+                    <h3 id="cap-group-6-h3">Wet Chemistry & Substrate Prep</h3>
+                    <ul id="cap-group-6-ul">
+                        <li>**Epitaxy Support:** Access to GaN, InP, GaAs epitaxial growth, and support for Si/Sapphire/Glass substrates.</li>
+                        <li>**Wet Processes:** Standard acid/solvent wet benches for etching, cleaning, and lift-off processes.</li>
+                        <li>**Specialized Etching:** Wet chemical etching for specific material removal (e.g., Silicon, Oxide).</li>
+                    </ul>
+                </div>
+                
+                <div class="capability-category">
+                    <h3 id="cap-group-7-h3">Advanced Applications</h3>
+                    <ul id="cap-group-7-ul">
+                        <li>**Piezoelectric MEMS:** (002) preferred AlScN processing (with ion milling) and PZT.</li>
+                        <li>**Compound Semi:** GaN HEMT (D/E-mode, DCFL/CMOS), Micro-LED (8" monolithic integration).</li>
+                        <li>**Integration:** Chiplet technology, Heterogeneous Integration.</li>
+                        <li>**Quantum:** MEMS-based Atomic Vapor Cell (Rb, Cs, buffer gas filling).</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="contact">
@@ -334,7 +387,7 @@
     </footer>
 
     <script>
-        // --- 语言文本数据 (与 Sticky Nav 保持同步) ---
+        // --- 语言文本数据 ---
         const de_texts = {
             'title': 'Mikro/Nanofabrikationsberatung | Globaler Technologie-Einkauf',
             'hero-title': 'Mikro/Nanofabrikationsberatung',
@@ -351,33 +404,53 @@
             'adv-3-h3': 'Prozesszuverlässigkeit',
             'adv-3-p': 'Jahrelange Expertise in der Mikro-/Nanofabrikation gewährleistet eine strenge Partnerauswahl und technische Überwachung für zuverlässige Projektergebnisse.',
             
-            'capabilities-h2': 'Unterstützte Mikro/Nanofabrikationsfähigkeiten',
-            'capabilities-intro': 'Wir ermöglichen den Zugang zu fortschrittlichen F&E- sowie Pilot-/Volumenproduktionslinien (einschließlich 6-Zoll F&E und 8-Zoll Pilotlinien). Unser Netzwerk unterstützt ein umfassendes Angebot an Prozesspaketen:',
-            'cap-group-1-h3': 'Kernanlagen & Prozessabdeckung',
+            'capabilities-h2': 'Unterstützte Mikro/Nanofabrikationsfähigkeiten (Anlagenzugang)',
+            'capabilities-intro': 'Wir ermöglichen den Zugang zu fortschrittlichen F&E- sowie Pilot-/Volumenproduktionslinien (einschließlich 6-Zoll F&E und 8-Zoll Pilotlinien). Unser Netzwerk unterstützt ein umfassendes Angebot an Prozesspaketen und Geräten:',
+            
+            'cap-group-1-h3': 'Lithographie',
             'cap-group-1-ul': `
-                <li>**Linienzugang:** 6-Zoll F&E-Linien und 8-Zoll Pilot-/Volumenproduktionslinien.</li>
-                <li>**Epitaxie (Externer Zugang):** GaN, InP, GaAs und Unterstützung für Si/Saphir/etc. Substrate.</li>
-                <li>**Kernprozesse:** Lithographie (Doppelseitig, Stepper, E-Strahl), Ätzen (RIE, ICP, IBE, DRIE, VHF, Trimming), CVD, PVD (Sputtern, E-Strahl, Thermisch, PLD), Ionenimplantation.</li>
+                <li>**Ausrüstung:** Doppelseitiger Kontaktbelichter (Double-side Contact Aligner), Stepper-Projektionssystem (Stepper Projection System).</li>
+                <li>**Fortgeschritten:** Elektronenstrahllithographie (E-beam, Elektronenstrahl).</li>
+                <li>**Anwendung:** Strukturierung für MEMS, III-V-Bauelemente und Spezialstrukturen.</li>
             `,
-            'cap-group-2-h3': 'Verbindungshalbleiter & Optoelektronik',
+            'cap-group-2-h3': 'Abscheidung (Deposition)',
             'cap-group-2-ul': `
-                <li>**GaN HEMT:** Vollständiger Prozessablauf für D-mode- und E-mode-Bauelemente, Unterstützung für 2-, 4-, 6- und 8-Zoll-Wafer, einschließlich monolithischer DCFL/CMOS-Integration.</li>
-                <li>**Micro-LED Displays:** Zugang zu 8-Zoll Micro-LED-Prozesslinien, die den gesamten Prozessablauf und die monolithische Integration von Pixeln und Treibern auf Wafer-Ebene abdecken.</li>
-                <li>**III-V Bauelemente:** Fertigungs- und Verpackungsunterstützung für verschiedene III-V optoelektronische Bauelemente.</li>
+                <li>**PVD:** Magnetron-Sputtern (Magnetron Sputtering), Elektronenstrahlverdampfung (E-beam Evaporation), Thermische Verdampfung (Thermal Evaporation), Gepulste Laserabscheidung (PLD).</li>
+                <li>**CVD:** PECVD, ICPCVD, LPCVD, MPCVD.</li>
+                <li>**Spezial:** Unterstützung für Atomlagenabscheidung (ALD) für Präzisionsfilme.</li>
             `,
-            'cap-group-3-h3': 'Fortgeschrittene MEMS und Mikrosysteme',
+            'cap-group-3-h3': 'Plasmaätzen (Plasma Etching)',
             'cap-group-3-ul': `
-                <li>**Piezoelektrische MEMS (AlScN/PZT):** Prozess für hochleistungsfähiges (002) AlScN (mit Ionenfräsen) und PZT (einschließlich (110) bevorzugtem). Anwendungen umfassen FBAR-Filter, Ultraschallwandler und Gyroskope.</li>
-                <li>**Akustische Bauelemente:** Bulk/Surface Acoustic Wave Resonatoren (Filter).</li>
-                <li>**Spezialstrukturen:** Wafer-Bonding (Si-Glas, Au-In, Au-Sn usw.) und Freigabekavitätenstrukturen (Vorder-/Rückseite/Versiegelt).</li>
-                <li>**Quantenbauelemente:** MEMS-basierte Atom-Dampfzellen-Technologie für Atomuhren, Gyroskope und Magnetometer auf Chipebene.</li>
+                <li>**Ausrüstung:** RIE, ICP, NLD-ICP.</li>
+                <li>**Präzision:** Ionenstrahlätzen (IBE), Trimming.</li>
+                <li>**Tiefenätzen:** Deep RIE (DRIE) für Strukturen mit hohem Aspektverhältnis, VHF-Ätzen (Very High Frequency).</li>
             `,
-            'cap-group-4-h3': 'Integration und Spezialprozesse',
+            'cap-group-4-h3': 'Montage & Verpackung (Assembly & Packaging)',
             'cap-group-4-ul': `
-                <li>**Heterogene Integration:** TSV/TGV (Through-Silicon/Glass Via) mit Hochaspektverhältnis-Galvanik, Chiplet-Technologie, horizontale Flächenanordnung und fortschrittliches Bonden (Anodisch/Eutektisch/Hybrid).</li>
-                <li>**Magnetische Bauelemente:** Verarbeitung magnetischer Tunnelkontakte (MTJ) mittels Doppelschicht-Fotolackablösung für Speicher, Sensoren und Spintronik-Bauelemente.</li>
-                <li>**Verpackung:** Flip-Chip-Bonding, Drahtbonden, Dosieren, Verdünnen, CMP, Trennen und integrierte Verpackungslösungen.</li>
+                <li>**Wafer-Ebene:** Wafer-Bonding (Si-Glas, Au-In, Au-Sn usw.), TSV/TGV (hohes Aspektverhältnis).</li>
+                <li>**Chip-Ebene:** Flip-Chip-Bonding (Kopf-an-Kopf), Die-Attach (Chipbefestigung), Drahtbonden (Wire Bonding), Dosieren (Dispensing).</li>
+                <li>**Fertigstellung:** Verdünnen (Thinning), CMP, Trennen (Dicing), integrierte Verpackungslösungen.</li>
             `,
+            'cap-group-5-h3': 'Analytik & Messtechnik (Analytics & Metrology)',
+            'cap-group-5-ul': `
+                <li>**Dicke/Profil:** Profilometer, Schichtdickenmessung (Film Thickness Measurement).</li>
+                <li>**Material/Struktur:** Röntgen (X-ray), AFM, Ultraschallprüfung (Ultrasonic Testing).</li>
+                <li>**Elektrisch/Mechanisch:** I-V/C-V-Tests, Zugversuche (Tensile Testing), elektrische Charakterisierung.</li>
+            `,
+            'cap-group-6-h3': 'Nasschemie & Substratvorbereitung (Wet Chemistry & Substrate Prep)',
+            'cap-group-6-ul': `
+                <li>**Epitaxie-Unterstützung:** Zugang zu GaN-, InP-, GaAs-Epitaxialwachstum und Unterstützung für Si/Saphir/Glas-Substrate.</li>
+                <li>**Nassprozesse:** Standard-Säure-/Lösungsmittel-Nassbänke für Ätz-, Reinigungs- und Lift-off-Prozesse.</li>
+                <li>**Spezialisiertes Ätzen:** Nasschemisches Ätzen zur Entfernung spezifischer Materialien (z. B. Silizium, Oxid).</li>
+            `,
+            'cap-group-7-h3': 'Fortgeschrittene Anwendungen (Advanced Applications)',
+            'cap-group-7-ul': `
+                <li>**Piezoelektrische MEMS:** (002) bevorzugte AlScN-Verarbeitung (mit Ionenfräsen) und PZT.</li>
+                <li>**Verbindungshalbleiter:** GaN HEMT (D/E-Mode, DCFL/CMOS), Micro-LED (8" monolithische Integration).</li>
+                <li>**Integration:** Chiplet-Technologie, Heterogene Integration.</li>
+                <li>**Quanten:** MEMS-basierte Atom-Dampfzellen-Technologie (Rb, Cs, Puffergasbefüllung).</li>
+            `,
+
             'contact-h2': 'Kontaktieren Sie uns für eine Beratung',
             'contact-p-1': 'Starten Sie Ihr nächstes Mikro-/Nanofabrikationsprojekt mit Zuversicht. Kontaktieren Sie noch heute unser Büro in Deutschland.',
             'contact-p-2': '**E-Mail:**',
@@ -403,32 +476,51 @@
             'adv-3-h3': 'Process Reliability',
             'adv-3-p': 'Years of micro/nanofabrication expertise ensures stringent partner selection and technical oversight for reliable project outcomes.',
             
-            'capabilities-h2': 'Supported Micro/Nanofabrication Capabilities',
-            'capabilities-intro': 'We facilitate access to advanced R&D and pilot/volume production lines (including 6-inch R&D and 8-inch pilot lines). Our network supports a comprehensive range of process packages:',
-            'cap-group-1-h3': 'Core Facility & Process Coverage',
+            'capabilities-h2': 'Supported Micro/Nanofabrication Capabilities (Facility Access)',
+            'capabilities-intro': 'We facilitate access to advanced R&D and pilot/volume production lines (including 6-inch R&D and 8-inch pilot lines). Our network supports a comprehensive range of process packages and equipment:',
+            
+            'cap-group-1-h3': 'Lithography',
             'cap-group-1-ul': `
-                <li>**Line Access:** 6-inch R&D lines and 8-inch pilot/volume production lines.</li>
-                <li>**Epitaxy (External Access):** GaN, InP, GaAs, and support for Si/Sapphire/etc. substrates.</li>
-                <li>**Core Processes:** Lithography (Double-side, Stepper, E-beam), Etching (RIE, ICP, IBE, DRIE, VHF, Trimming), CVD, PVD (Sputtering, E-beam, Thermal, PLD), Ion Implantation.</li>
+                <li>**Equipment:** Double-side Contact Aligner, Stepper Projection System.</li>
+                <li>**Advanced:** Electron Beam Lithography (E-beam).</li>
+                <li>**Application:** Patterning for MEMS, III-V devices, and specialized structures.</li>
             `,
-            'cap-group-2-h3': 'Compound Semiconductors & Optoelectronics',
+            'cap-group-2-h3': 'Deposition',
             'cap-group-2-ul': `
-                <li>**GaN HEMT:** Full-flow process for D-mode and E-mode devices, supporting 2", 4", 6", and 8" wafers, including monolithic DCFL/CMOS integration.</li>
-                <li>**Micro-LED Displays:** Access to 8" Micro-LED process lines, covering full flow and wafer-level monolithic integration of pixels and drivers.</li>
-                <li>**III-V Devices:** Fabrication and packaging support for various III-V optoelectronic devices.</li>
+                <li>**PVD:** Magnetron Sputtering, E-beam Evaporation, Thermal Evaporation, Pulsed Laser Deposition (PLD).</li>
+                <li>**CVD:** PECVD, ICPCVD, LPCVD, MPCVD.</li>
+                <li>**Special:** Atomic Layer Deposition (ALD) support for precision film growth.</li>
             `,
-            'cap-group-3-h3': 'Advanced MEMS and Microsystems',
+            'cap-group-3-h3': 'Plasma Etching',
             'cap-group-3-ul': `
-                <li>**Piezoelectric MEMS (AlScN/PZT):** Process for high-performance (002) AlScN (with ion milling) and PZT (including (110) preferred). Applications include FBAR filters, ultrasonic transducers, and gyroscopes.</li>
-                <li>**Acoustic Devices:** Bulk/Surface Acoustic Wave Resonators (Filters).</li>
-                <li>**Special Structures:** Wafer bonding (Si-Glass, Au-In, Au-Sn, etc.) and release cavity structures (Front/Back/Sealed).</li>
-                <li>**Quantum Devices:** MEMS-based Atomic Vapor Cell technology for chip-level atomic clocks, gyroscopes, and magnetometers.</li>
+                <li>**Equipment:** RIE, ICP, NLD-ICP.</li>
+                <li>**Precision:** Ion Beam Etching (IBE), Trimming.</li>
+                <li>**Deep Etching:** Deep RIE (DRIE) for high aspect ratio structures, VHF (Very High Frequency) etching.</li>
             `,
-            'cap-group-4-h3': 'Integration and Specialized Processes',
+            'cap-group-4-h3': 'Assembly & Packaging',
             'cap-group-4-ul': `
-                <li>**Heterogeneous Integration:** TSV/TGV (Through-Silicon/Glass Via) with high aspect ratio electroplating, Chiplet technology, horizontal array splicing, and advanced bonding (Anodic/Eutectic/Hybrid).</li>
-                <li>**Magnetic Devices:** Magnetic Tunnel Junction (MTJ) processing using double-layer photoresist stripping for storage, sensors, and spintronic devices.</li>
-                <li>**Packaging:** Flip-chip bonding, wire bonding, dispensing, thinning, CMP, dicing, and integrated packaging solutions.</li>
+                <li>**Wafer Level:** Wafer Bonding (Si-Glass, Au-In, Au-Sn, etc.), TSV/TGV (high aspect ratio).</li>
+                <li>**Chip Level:** Flip-chip bonding, Die Attach, Wire Bonding, Dispensing.</li>
+                <li>**Finishing:** Thinning, CMP, Dicing, Integrated Packaging Solutions.</li>
+            `,
+            'cap-group-5-h3': 'Analytics & Metrology',
+            'cap-group-5-ul': `
+                <li>**Thickness/Profile:** Profilometer, Film Thickness Measurement.</li>
+                <li>**Material/Structure:** X-ray, AFM, Ultrasonic Testing.</li>
+                <li>**Electrical/Mechanical:** I-V/C-V testing, Tensile Testing, Electrical characterization.</li>
+            `,
+            'cap-group-6-h3': 'Wet Chemistry & Substrate Prep',
+            'cap-group-6-ul': `
+                <li>**Epitaxy Support:** Access to GaN, InP, GaAs epitaxial growth, and support for Si/Sapphire/Glass substrates.</li>
+                <li>**Wet Processes:** Standard acid/solvent wet benches for etching, cleaning, and lift-off processes.</li>
+                <li>**Specialized Etching:** Wet chemical etching for specific material removal (e.g., Silicon, Oxide).</li>
+            `,
+            'cap-group-7-h3': 'Advanced Applications',
+            'cap-group-7-ul': `
+                <li>**Piezoelectric MEMS:** (002) preferred AlScN processing (with ion milling) and PZT.</li>
+                <li>**Compound Semi:** GaN HEMT (D/E-mode, DCFL/CMOS), Micro-LED (8" monolithic integration).</li>
+                <li>**Integration:** Chiplet technology, Heterogeneous Integration.</li>
+                <li>**Quantum:** MEMS-based Atomic Vapor Cell (Rb, Cs, buffer gas filling).</li>
             `,
             'contact-h2': 'Contact Us for Consultation',
             'contact-p-1': 'Start your next micro/nanofabrication project with confidence. Contact our German office today.',
@@ -444,7 +536,7 @@
             document.getElementById('hero-title').textContent = texts['hero-title'];
             document.getElementById('hero-subtitle').textContent = texts['hero-subtitle'];
             
-            // Navigation Links
+            // Navigation Links (Main and Sticky)
             const navElements = ['advantages', 'capabilities', 'contact', 'impressum', 'privacy'];
             navElements.forEach(key => {
                 document.getElementById(`nav-${key}`).textContent = texts[`nav-${key}`];
@@ -460,18 +552,15 @@
             document.getElementById('adv-3-h3').textContent = texts['adv-3-h3'];
             document.getElementById('adv-3-p').textContent = texts['adv-3-p'];
 
-            // Capabilities
+            // Capabilities (Structured)
             document.getElementById('capabilities-h2').textContent = texts['capabilities-h2'];
             document.getElementById('capabilities-intro').textContent = texts['capabilities-intro'];
-            document.getElementById('cap-group-1-h3').textContent = texts['cap-group-1-h3'];
-            document.getElementById('cap-group-1-ul').innerHTML = texts['cap-group-1-ul'];
-            document.getElementById('cap-group-2-h3').textContent = texts['cap-group-2-h3'];
-            document.getElementById('cap-group-2-ul').innerHTML = texts['cap-group-2-ul'];
-            document.getElementById('cap-group-3-h3').textContent = texts['cap-group-3-h3'];
-            document.getElementById('cap-group-3-ul').innerHTML = texts['cap-group-3-ul'];
-            document.getElementById('cap-group-4-h3').textContent = texts['cap-group-4-h3'];
-            document.getElementById('cap-group-4-ul').innerHTML = texts['cap-group-4-ul'];
-
+            
+            // Populate the seven groups
+            for (let i = 1; i <= 7; i++) {
+                document.getElementById(`cap-group-${i}-h3`).textContent = texts[`cap-group-${i}-h3`];
+                document.getElementById(`cap-group-${i}-ul`).innerHTML = texts[`cap-group-${i}-ul`];
+            }
 
             // Contact
             document.getElementById('contact-h2').textContent = texts['contact-h2'];
@@ -496,27 +585,31 @@
         // --- Sticky Navigation Logic ---
         const mainNav = document.getElementById('main-nav');
         const stickyNav = document.getElementById('sticky-nav');
-        // Get the bottom position of the main navigation bar
-        const navOffset = mainNav.offsetTop + mainNav.offsetHeight; 
+        let navOffset = 0; // Will be calculated on load/resize
+
+        function calculateNavOffset() {
+            // Calculate the point at which the main navigation bar leaves the screen
+            navOffset = mainNav.offsetTop; 
+        }
 
         function handleStickyNav() {
-            // Check if user has scrolled past the main navigation bar
-            if (window.scrollY >= navOffset) {
-                // Show the sticky nav and hide the original nav
+            if (window.scrollY > navOffset) {
                 stickyNav.style.display = 'block';
                 stickyNav.classList.add('sticky');
+                mainNav.style.visibility = 'hidden'; // Hide the original nav slot to prevent jump
             } else {
-                // Hide the sticky nav
                 stickyNav.style.display = 'none';
                 stickyNav.classList.remove('sticky');
+                mainNav.style.visibility = 'visible';
             }
         }
 
-        // Attach event listeners
         window.onscroll = handleStickyNav;
+        window.onresize = calculateNavOffset; // Recalculate if window size changes
+
         window.onload = () => {
+            calculateNavOffset();
             setLanguage('en'); // Default to English on load
-            // Initial check in case the user reloads the page while scrolled down
             handleStickyNav(); 
         };
     </script>
