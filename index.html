@@ -9,6 +9,7 @@
     content="BitWerk IT provides micro/nanofabrication consulting, process sourcing, and fabrication partner matching for MEMS, compound semiconductor, packaging, and pilot-line projects."
   />
   <meta name="theme-color" content="#0f2742" />
+  <link rel="icon" href="logo.jpg" />
 
   <style>
     :root {
@@ -86,6 +87,7 @@
       border-radius: 999px;
       cursor: pointer;
       font-size: 14px;
+      transition: 0.2s ease;
     }
 
     .lang-btn:hover {
@@ -95,7 +97,7 @@
     .hero {
       position: relative;
       background:
-        linear-gradient(180deg, rgba(7, 25, 44, 0.82), rgba(10, 34, 58, 0.88)),
+        linear-gradient(180deg, rgba(7, 25, 44, 0.84), rgba(10, 34, 58, 0.9)),
         radial-gradient(circle at top right, rgba(43, 122, 196, 0.22), transparent 35%),
         linear-gradient(135deg, #0d2238, #13385d);
       color: #fff;
@@ -113,27 +115,36 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       margin-bottom: 24px;
     }
 
-    .brand-mark {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #e6eef8, #a9c3df);
-      color: var(--primary-dark);
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      font-size: 22px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    .brand-logo {
+      height: 72px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
     }
 
-    .brand-text {
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-title {
       font-weight: 700;
       letter-spacing: 0.2px;
-      font-size: 18px;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: #c8d9ea;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
     }
 
     .eyebrow {
@@ -348,7 +359,6 @@
 
     .audience-card ul,
     .cap-card ul,
-    .process-card ol,
     .contact-card ul {
       margin: 0;
       padding-left: 18px;
@@ -357,7 +367,6 @@
 
     .audience-card li + li,
     .cap-card li + li,
-    .process-card li + li,
     .contact-card li + li {
       margin-top: 8px;
     }
@@ -573,6 +582,14 @@
       .nav::-webkit-scrollbar {
         display: none;
       }
+
+      .brand {
+        align-items: flex-start;
+      }
+
+      .brand-logo {
+        height: 58px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -582,6 +599,11 @@
 
       .btn {
         width: 100%;
+      }
+
+      .brand {
+        flex-direction: column;
+        gap: 10px;
       }
 
       #cookie-banner .modal-content {
@@ -603,8 +625,11 @@
     <div class="container hero-grid">
       <div>
         <div class="brand">
-          <div class="brand-mark">B</div>
-          <div class="brand-text">BitWerk IT</div>
+          <img src="logo.jpg" alt="BitWerk IT Logo" class="brand-logo" />
+          <div class="brand-text-wrap">
+            <div class="brand-title">BitWerk IT</div>
+            <div class="brand-subtitle" id="brand-subtitle">Micro/Nanofabrication Consulting</div>
+          </div>
         </div>
 
         <div class="eyebrow" id="hero-eyebrow">Germany-based technical consulting</div>
@@ -935,6 +960,7 @@
     const TEXTS = {
       en: {
         "page-title": "Micro/Nanofabrication Consulting in Germany | BitWerk IT",
+        "brand-subtitle": "Micro/Nanofabrication Consulting",
         "hero-eyebrow": "Germany-based technical consulting",
         "hero-title": "Micro/Nanofabrication process sourcing and technical consulting for R&D and pilot-line projects",
         "hero-subtitle": "We help research teams, startups, and industrial clients identify suitable fabrication routes and qualified partners for MEMS, compound semiconductor, advanced packaging, and related process needs.",
@@ -950,7 +976,6 @@
           <li>Support for MEMS, GaN, Micro-LED, wafer bonding, and packaging-related projects</li>
           <li>Early-stage coordination for technical requirements, timelines, and communication</li>
         `,
-
         "nav-why": "Why BitWerk",
         "nav-who": "Who We Work With",
         "nav-capabilities": "Capabilities",
@@ -1096,6 +1121,7 @@
 
       de: {
         "page-title": "Mikro-/Nanofabrikationsberatung in Deutschland | BitWerk IT",
+        "brand-subtitle": "Mikro-/Nanofabrikationsberatung",
         "hero-eyebrow": "Technische Beratung mit Standort Deutschland",
         "hero-title": "Mikro-/Nanofabrikationsberatung sowie Prozess- und Partnervermittlung für F&E- und Pilotlinienprojekte",
         "hero-subtitle": "Wir unterstützen Forschungsteams, Start-ups und Industrieunternehmen dabei, geeignete Fertigungswege und passende Partner für MEMS, Verbindungshalbleiter, Advanced Packaging und verwandte Prozessanforderungen zu identifizieren.",
@@ -1111,7 +1137,6 @@
           <li>Unterstützung für MEMS-, GaN-, Micro-LED-, Wafer-Bonding- und Packaging-nahe Projekte</li>
           <li>Frühphasige Abstimmung zu technischen Anforderungen, Zeitplänen und Kommunikation</li>
         `,
-
         "nav-why": "Warum BitWerk",
         "nav-who": "Für wen",
         "nav-capabilities": "Kompetenzen",
