@@ -1,874 +1,1364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title id="title">Micro/Nanofabrication Consultation | BitWerk IT</title>
-    <meta
-        name="description"
-        content="Expert micro/nanofabrication consultation based in Germany. Leveraging a global network and deep expertise for cost-effective, fast, and high-quality process matching."
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Micro/Nanofabrication Consulting in Germany | BitWerk IT</title>
+  <meta
+    name="description"
+    content="BitWerk IT provides micro/nanofabrication consulting, process sourcing, and fabrication partner matching for MEMS, compound semiconductor, packaging, and pilot-line projects."
+  />
+  <meta name="theme-color" content="#0f2742" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --surface-2: #eef3f9;
+      --text: #1c2430;
+      --muted: #5f6b7a;
+      --primary: #0f4c81;
+      --primary-dark: #0b3559;
+      --accent: #d98b1f;
+      --line: #d9e2ec;
+      --shadow: 0 10px 30px rgba(8, 25, 48, 0.08);
+      --radius: 16px;
+      --maxw: 1180px;
+    }
 
-    <style>
-        :root {
-            --primary-color: #0047ab;
-            --secondary-color: #ff9900;
-            --text-color: #333333;
-            --background-light: #f9f9f9;
-            --background-dark: #2c3e50;
-            --border-radius: 4px;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        * {
-            box-sizing: border-box;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
 
-        body {
-            font-family: "Roboto", sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-light);
-            color: var(--text-color);
-        }
+    body.no-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
 
-        a {
-            color: var(--primary-color);
-        }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
 
-        .no-scroll {
-            overflow: hidden;
-            height: 100vh;
-        }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 0;
-            overflow: hidden;
-        }
+    .container {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+    }
 
-        section {
-            padding: 60px 0;
-            margin-bottom: 20px;
-        }
+    .topbar {
+      position: absolute;
+      top: 18px;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+    }
 
-        h1,
-        h2,
-        h3 {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
+    .topbar-inner {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
 
-        h2 {
-            font-size: 2.2em;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
+    .lang-btn {
+      border: 1px solid rgba(255,255,255,0.6);
+      background: transparent;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+    }
 
-        h2::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary-color);
-            margin: 10px auto 0;
-        }
+    .lang-btn:hover {
+      background: rgba(255,255,255,0.12);
+    }
 
-        #hero {
-            background: linear-gradient(rgba(0, 71, 171, 0.9), rgba(0, 71, 171, 0.9)),
-                url("path/to/your/tech-background-image.jpg");
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 20px 100px;
-            text-align: center;
-            position: relative;
-        }
+    .hero {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(7, 25, 44, 0.82), rgba(10, 34, 58, 0.88)),
+        radial-gradient(circle at top right, rgba(43, 122, 196, 0.22), transparent 35%),
+        linear-gradient(135deg, #0d2238, #13385d);
+      color: #fff;
+      padding: 110px 0 70px;
+      overflow: hidden;
+    }
 
-        #site-logo {
-            width: 150px;
-            height: auto;
-            margin-bottom: 25px;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
 
-        #hero h1 {
-            color: white;
-            font-size: 3.2em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
 
-        #hero p {
-            font-size: 1.1em;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #e6eef8, #a9c3df);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
 
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-        }
+    .brand-text {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      font-size: 18px;
+    }
 
-        .lang-switch button {
-            background: none;
-            color: white;
-            border: 1px solid white;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: var(--border-radius);
-            margin-left: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #c7dbef;
+      margin-bottom: 14px;
+    }
 
-        .lang-switch button:hover {
-            background-color: white;
-            color: var(--primary-color);
-        }
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
 
-        .navbar {
-            background: var(--background-dark);
-            color: white;
-            text-align: center;
-            z-index: 1000;
-        }
+    .hero p.lead {
+      margin: 0 0 24px;
+      color: #d9e7f5;
+      font-size: 18px;
+      max-width: 700px;
+    }
 
-        .navbar.sticky {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            left: 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.3s ease-in-out;
-        }
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 26px 0 30px;
+    }
 
-        .navbar a {
-            color: white;
-            display: inline-block;
-            padding: 15px 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    .hero-point {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: #e6f0fa;
+      font-size: 14px;
+    }
 
-        .navbar a:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+      min-width: 180px;
+    }
 
-        #advantages .grid,
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
-        .advantage-card {
-            background: white;
-            padding: 30px;
-            border-top: 5px solid var(--primary-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    .btn-primary {
+      background: #fff;
+      color: var(--primary-dark);
+    }
 
-        .capability-category {
-            background: white;
-            padding: 20px;
-            border-left: 4px solid var(--primary-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
 
-        .capability-category ul {
-            padding-left: 20px;
-            margin: 0;
-        }
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+    }
 
-        .capability-category li {
-            margin-bottom: 10px;
-        }
+    .hero-card h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      color: #fff;
+    }
 
-        #contact {
-            background-color: var(--background-dark);
-            color: white;
-            text-align: center;
-        }
+    .hero-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #dbe8f4;
+    }
 
-        #contact h2 {
-            color: white;
-        }
+    .hero-card li + li {
+      margin-top: 10px;
+    }
 
-        #contact a {
-            color: #9fd0ff;
-        }
+    .nav-wrap {
+      background: #0f2742;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
 
-        footer {
-            background: #222;
-            color: #ccc;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9em;
-        }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      align-items: center;
+      justify-content: center;
+      min-height: 64px;
+    }
 
-        footer a {
-            color: #ddd;
-            text-decoration: none;
-        }
+    .nav a {
+      color: #e8f0f8;
+      font-weight: 500;
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+    .nav a:hover {
+      background: rgba(255,255,255,0.08);
+    }
 
-        .modal-overlay,
-        #cookie-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            overflow-y: auto;
-        }
+    section {
+      padding: 72px 0;
+    }
 
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 800px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            margin: 50px auto;
-        }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
 
-        .modal-content h2 {
-            text-align: left;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
+    .section-head .label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-        .modal-content h2::after {
-            display: none;
-        }
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--primary-dark);
+    }
 
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--text-color);
-        }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
 
-        #cookie-banner {
-            height: auto;
-            align-items: flex-end;
-            background-color: rgba(0, 0, 0, 0.85);
-            padding: 0;
-        }
+    .cards-3,
+    .cards-4,
+    .cards-2 {
+      display: grid;
+      gap: 22px;
+    }
 
-        #cookie-banner .modal-content {
-            background: #222;
-            color: white;
-            max-width: 100%;
-            width: 100%;
-            border-radius: 0;
-            margin: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    .cards-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-        #cookie-banner button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: var(--border-radius);
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
+    .cards-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 
-        #cookie-banner button:hover {
-            background-color: var(--secondary-color);
-        }
+    .cards-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-        #cookie-banner p {
-            margin: 0;
-            flex-grow: 1;
-        }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
 
-        @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2.2em;
-            }
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--primary-dark);
+      font-size: 20px;
+    }
 
-            .navbar a {
-                padding: 12px 10px;
-                font-size: 0.95em;
-            }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
 
-            .lang-switch {
-                position: static;
-                text-align: center;
-                margin-bottom: 20px;
-            }
+    .icon-chip {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--surface-2);
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
 
-            #cookie-banner .modal-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+    .audience-card ul,
+    .cap-card ul,
+    .process-card ol,
+    .contact-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
 
-            #cookie-banner button {
-                margin: 10px 10px 0 0;
-            }
-        }
-    </style>
+    .audience-card li + li,
+    .cap-card li + li,
+    .process-card li + li,
+    .contact-card li + li {
+      margin-top: 8px;
+    }
+
+    .cap-card p {
+      margin: 0 0 12px;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .trust-item {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .process-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-no {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .contact-section {
+      background: linear-gradient(180deg, #0f2742, #112f50);
+      color: #fff;
+    }
+
+    .contact-section .section-head h2,
+    .contact-section .section-head p {
+      color: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 26px;
+      backdrop-filter: blur(6px);
+    }
+
+    .contact-card h3 {
+      color: #fff;
+      margin-top: 0;
+    }
+
+    .contact-card p,
+    .contact-card li,
+    .contact-card a {
+      color: #d9e7f5;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer {
+      background: #0a1827;
+      color: #c7d3de;
+      padding: 26px 0 36px;
+      font-size: 14px;
+    }
+
+    footer .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+
+    footer a {
+      color: #dfe9f4;
+    }
+
+    .modal-overlay,
+    #cookie-banner {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(5, 14, 24, 0.7);
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #fff;
+      color: var(--text);
+      width: min(900px, 100%);
+      max-height: 86vh;
+      overflow: auto;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      color: var(--primary-dark);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      color: #526070;
+    }
+
+    #cookie-banner {
+      align-items: flex-end;
+      background: rgba(0,0,0,0.55);
+    }
+
+    #cookie-banner .modal-content {
+      width: min(1120px, 100%);
+      max-height: none;
+      background: #13253a;
+      color: #fff;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+    }
+
+    #cookie-banner p {
+      margin: 0;
+      color: #d5e3f0;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-actions button {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .cookie-primary {
+      background: #fff;
+      color: var(--primary-dark);
+      border: none;
+    }
+
+    .cookie-secondary {
+      background: transparent;
+      color: #fff;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .contact-grid,
+      .cards-3,
+      .cards-4,
+      .cards-2,
+      .trust-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 8px 0;
+      }
+
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 96px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      #cookie-banner .modal-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body class="no-scroll">
-    <div class="lang-switch">
-        <button onclick="setLanguage('en')">EN</button>
-        <button onclick="setLanguage('de')">DE</button>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="setLanguage('de')">DE</button>
     </div>
+  </div>
 
-    <header id="hero">
-        <img src="logo.jpg" alt="BitWerk IT Logo" id="site-logo" />
-        <h1 id="hero-title">Micro/Nanofabrication Consultation</h1>
-        <p id="hero-subtitle">Leveraging Global Network for Cost-Efficient Process Matching.</p>
-    </header>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div class="brand-text">BitWerk IT</div>
+        </div>
 
-    <nav class="navbar" id="main-nav">
-        <a href="#advantages" id="nav-advantages">Advantages</a>
-        <a href="#capabilities" id="nav-capabilities">Capabilities</a>
-        <a href="#contact" id="nav-contact">Contact</a>
-        <a href="#" onclick="openModal('impressum'); return false;" id="nav-impressum">Legal Notice (Impressum)</a>
-        <a href="#" onclick="openModal('privacy'); return false;" id="nav-privacy">Privacy Policy</a>
+        <div class="eyebrow" id="hero-eyebrow">Germany-based technical consulting</div>
+        <h1 id="hero-title">Micro/Nanofabrication process sourcing and technical consulting for R&amp;D and pilot-line projects</h1>
+        <p class="lead" id="hero-subtitle">
+          We help research teams, startups, and industrial clients identify suitable fabrication routes and qualified partners for MEMS, compound semiconductor, advanced packaging, and related process needs.
+        </p>
+
+        <div class="hero-points">
+          <div class="hero-point" id="hero-point-1">Faster partner matching for specialized process requirements</div>
+          <div class="hero-point" id="hero-point-2">Cross-border technical coordination with a Germany-based contact point</div>
+          <div class="hero-point" id="hero-point-3">Support for prototyping, pilot production, and selected low-volume projects</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:info@bitwerk.eu.com" id="cta-primary">Request Consultation</a>
+          <a class="btn btn-secondary" href="#contact" id="cta-secondary">Contact Details</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3 id="hero-card-title">What we help with</h3>
+        <ul id="hero-card-list">
+          <li>Feasibility-oriented process matching for specialized device concepts</li>
+          <li>Identification of suitable fabrication capabilities and partner profiles</li>
+          <li>Support for MEMS, GaN, Micro-LED, wafer bonding, and packaging-related projects</li>
+          <li>Early-stage coordination for technical requirements, timelines, and communication</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-wrap">
+    <nav class="container nav">
+      <a href="#why" id="nav-why">Why BitWerk</a>
+      <a href="#who" id="nav-who">Who We Work With</a>
+      <a href="#capabilities" id="nav-capabilities">Capabilities</a>
+      <a href="#process" id="nav-process">How It Works</a>
+      <a href="#contact" id="nav-contact">Contact</a>
+      <a href="#" onclick="openModal('impressum'); return false;" id="nav-impressum">Legal Notice</a>
+      <a href="#" onclick="openModal('privacy'); return false;" id="nav-privacy">Privacy Policy</a>
     </nav>
+  </div>
 
-    <nav class="navbar" id="sticky-nav" style="display: none;">
-        <a href="#advantages" id="sticky-nav-advantages">Advantages</a>
-        <a href="#capabilities" id="sticky-nav-capabilities">Capabilities</a>
-        <a href="#contact" id="sticky-nav-contact">Contact</a>
-        <a href="#" onclick="openModal('impressum'); return false;" id="sticky-nav-impressum">Legal Notice (Impressum)</a>
-        <a href="#" onclick="openModal('privacy'); return false;" id="sticky-nav-privacy">Privacy Policy</a>
-    </nav>
+  <main>
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" id="why-label">Why BitWerk</div>
+          <h2 id="why-title">A practical consulting interface between technical demand and fabrication capability</h2>
+          <p id="why-text">
+            BitWerk IT supports clients who need a clearer path from concept to fabrication. We focus on technical fit, communication efficiency, and realistic process matching for projects where generic sourcing is not enough.
+          </p>
+        </div>
 
-    <main class="container">
-        <section id="advantages">
-            <h2 id="advantages-h2">Competitive Advantages: Experience & Network</h2>
-            <div class="grid">
-                <div class="advantage-card">
-                    <h3 id="adv-1-h3">Cost-Competitive Matching</h3>
-                    <p id="adv-1-p">
-                        Access to a verifiable global network of fabrication partners, enabling cost-effective sourcing for specialized projects.
-                    </p>
-                </div>
-                <div class="advantage-card">
-                    <h3 id="adv-2-h3">Accelerated Delivery</h3>
-                    <p id="adv-2-p">
-                        Deep industrial insight allows for rapid identification of available manufacturing capacity, helping to minimize lead times.
-                    </p>
-                </div>
-                <div class="advantage-card">
-                    <h3 id="adv-3-h3">Process Reliability</h3>
-                    <p id="adv-3-p">
-                        Years of micro/nanofabrication expertise ensure stringent partner selection and technical oversight for reliable project outcomes.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="capabilities">
-            <h2 id="capabilities-h2">Supported Micro/Nanofabrication Capabilities (Facility Access)</h2>
-            <p id="capabilities-intro" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
-                We facilitate access to advanced R&amp;D and pilot/volume production lines (including 6-inch R&amp;D and 8-inch pilot lines). Our network supports a comprehensive range of process packages and equipment:
+        <div class="cards-3">
+          <div class="card">
+            <div class="icon-chip">01</div>
+            <h3 id="why-card-1-title">Technical relevance</h3>
+            <p id="why-card-1-text">
+              We focus on specialized micro/nanofabrication requirements where process details, material systems, and facility access matter.
             </p>
+          </div>
 
-            <div class="capabilities-grid">
-                <div class="capability-category">
-                    <h3 id="cap-group-1-h3">Lithography</h3>
-                    <ul id="cap-group-1-ul">
-                        <li><strong>Equipment:</strong> Double-side Contact Aligner, Stepper Projection System.</li>
-                        <li><strong>Advanced:</strong> Electron Beam Lithography (E-beam).</li>
-                        <li><strong>Application:</strong> Patterning for MEMS, III-V devices, and specialized structures.</li>
-                    </ul>
-                </div>
-
-                <div class="capability-category">
-                    <h3 id="cap-group-2-h3">Deposition</h3>
-                    <ul id="cap-group-2-ul">
-                        <li><strong>PVD:</strong> Magnetron Sputtering, E-beam Evaporation, Thermal Evaporation, Pulsed Laser Deposition (PLD).</li>
-                        <li><strong>CVD:</strong> PECVD, ICPCVD, LPCVD, MPCVD.</li>
-                        <li><strong>Special:</strong> Atomic Layer Deposition (ALD) support for precision film growth.</li>
-                    </ul>
-                </div>
-
-                <div class="capability-category">
-                    <h3 id="cap-group-3-h3">Plasma Etching</h3>
-                    <ul id="cap-group-3-ul">
-                        <li><strong>Equipment:</strong> RIE, ICP, NLD-ICP.</li>
-                        <li><strong>Precision:</strong> Ion Beam Etching (IBE), Trimming.</li>
-                        <li><strong>Deep Etching:</strong> Deep RIE (DRIE) for high aspect ratio structures, VHF (Very High Frequency) etching.</li>
-                    </ul>
-                </div>
-
-                <div class="capability-category">
-                    <h3 id="cap-group-4-h3">Assembly &amp; Packaging</h3>
-                    <ul id="cap-group-4-ul">
-                        <li><strong>Wafer Level:</strong> Wafer Bonding (Si-Glass, Au-In, Au-Sn, etc.), TSV/TGV (high aspect ratio).</li>
-                        <li><strong>Chip Level:</strong> Flip-chip bonding, Die Attach, Wire Bonding, Dispensing.</li>
-                        <li><strong>Finishing:</strong> Thinning, CMP, Dicing, Integrated Packaging Solutions.</li>
-                    </ul>
-                </div>
-
-                <div class="capability-category">
-                    <h3 id="cap-group-5-h3">Analytics &amp; Metrology</h3>
-                    <ul id="cap-group-5-ul">
-                        <li><strong>Thickness/Profile:</strong> Profilometer, Film Thickness Measurement.</li>
-                        <li><strong>Material/Structure:</strong> X-ray, AFM, Ultrasonic Testing.</li>
-                        <li><strong>Electrical/Mechanical:</strong> I-V/C-V testing, Tensile Testing, Electrical characterization.</li>
-                    </ul>
-                </div>
-
-                <div class="capability-category">
-                    <h3 id="cap-group-6-h3">Wet Chemistry &amp; Substrate Prep</h3>
-                    <ul id="cap-group-6-ul">
-                        <li><strong>Epitaxy Support:</strong> Access to GaN, InP, GaAs epitaxial growth, and support for Si/Sapphire/Glass substrates.</li>
-                        <li><strong>Wet Processes:</strong> Standard acid/solvent wet benches for etching, cleaning, and lift-off processes.</li>
-                        <li><strong>Specialized Etching:</strong> Wet chemical etching for specific material removal (e.g., Silicon, Oxide).</li>
-                    </ul>
-                </div>
-
-                <div class="capability-category">
-                    <h3 id="cap-group-7-h3">Advanced Applications</h3>
-                    <ul id="cap-group-7-ul">
-                        <li><strong>Piezoelectric MEMS:</strong> (002) preferred AlScN processing (with ion milling) and PZT.</li>
-                        <li><strong>Compound Semi:</strong> GaN HEMT (D/E-mode, DCFL/CMOS), Micro-LED (8&quot; monolithic integration).</li>
-                        <li><strong>Integration:</strong> Chiplet technology, Heterogeneous Integration.</li>
-                        <li><strong>Quantum:</strong> MEMS-based Atomic Vapor Cell (Rb, Cs, buffer gas filling).</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2 id="contact-h2">Contact Us for Consultation</h2>
-            <p id="contact-p-1">Start your next micro/nanofabrication project with confidence. Contact our German office today.</p>
-            <p id="contact-p-2"><strong>Email:</strong> <a href="mailto:info@bitwerk.eu.com">info@bitwerk.eu.com</a></p>
-            <p id="contact-p-3"><strong>Phone:</strong> +49 15777905642</p>
-        </section>
-    </main>
-
-    <footer>
-        <p id="footer-text">&copy; 2025 BitWerk IT - Germany</p>
-        <div>
-            <a href="#" onclick="openModal('impressum'); return false;" id="footer-impressum">Legal Notice (Impressum)</a>
-            |
-            <a href="#" onclick="openModal('privacy'); return false;" id="footer-privacy">Privacy Policy (Datenschutz)</a>
-        </div>
-    </footer>
-
-    <div id="impressum-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('impressum')">&times;</span>
-            <div id="impressum-content"></div>
-        </div>
-    </div>
-
-    <div id="privacy-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('privacy')">&times;</span>
-            <div id="privacy-content"></div>
-        </div>
-    </div>
-
-    <div id="cookie-banner" style="display: none;">
-        <div class="modal-content">
-            <p id="cookie-text">
-                We use cookies to ensure the functionality and performance of our website. By clicking "Accept All", you agree to the use of all cookies.
+          <div class="card">
+            <div class="icon-chip">02</div>
+            <h3 id="why-card-2-title">Efficient coordination</h3>
+            <p id="why-card-2-text">
+              A Germany-based contact point helps reduce friction in early-stage communication, requirement clarification, and project alignment.
             </p>
-            <div>
-                <button onclick="acceptCookies(true)" id="cookie-accept">Accept All</button>
-                <button onclick="acceptCookies(false)" id="cookie-decline">Decline</button>
-            </div>
+          </div>
+
+          <div class="card">
+            <div class="icon-chip">03</div>
+            <h3 id="why-card-3-title">Fit over volume</h3>
+            <p id="why-card-3-text">
+              The goal is not to list every possible supplier, but to identify suitable options for the specific technical and commercial context.
+            </p>
+          </div>
         </div>
+
+        <div class="trust-strip">
+          <div class="trust-item" id="trust-1">MEMS &amp; microfabrication focus</div>
+          <div class="trust-item" id="trust-2">Compound semiconductor familiarity</div>
+          <div class="trust-item" id="trust-3">Pilot-line and prototyping oriented</div>
+          <div class="trust-item" id="trust-4">Germany-based business contact</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="who">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" id="who-label">Who We Work With</div>
+          <h2 id="who-title">Suitable for technical teams that need capable process support, not generic procurement</h2>
+          <p id="who-text">
+            Our services are designed for clients with real process questions, emerging device concepts, or partner selection challenges.
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <div class="card audience-card">
+            <h3 id="who-card-1-title">Research groups</h3>
+            <ul id="who-card-1-list">
+              <li>Universities and institutes</li>
+              <li>Device concept validation</li>
+              <li>Prototype-oriented fabrication access</li>
+            </ul>
+          </div>
+
+          <div class="card audience-card">
+            <h3 id="who-card-2-title">Startups</h3>
+            <ul id="who-card-2-list">
+              <li>Early-stage product development</li>
+              <li>Process route evaluation</li>
+              <li>Pilot build preparation</li>
+            </ul>
+          </div>
+
+          <div class="card audience-card">
+            <h3 id="who-card-3-title">Industrial teams</h3>
+            <ul id="who-card-3-list">
+              <li>Special projects and feasibility checks</li>
+              <li>External process capability search</li>
+              <li>Packaging and integration support</li>
+            </ul>
+          </div>
+
+          <div class="card audience-card">
+            <h3 id="who-card-4-title">International clients</h3>
+            <ul id="who-card-4-list">
+              <li>Cross-border technical coordination</li>
+              <li>German contact interface</li>
+              <li>Clearer requirement communication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" id="cap-label">Capabilities</div>
+          <h2 id="cap-title">Representative process and application areas</h2>
+          <p id="cap-text">
+            We support technical scoping and partner identification across a range of micro/nanofabrication-related areas, including prototyping and selected pilot-line needs.
+          </p>
+        </div>
+
+        <div class="cards-2">
+          <div class="card cap-card">
+            <h3 id="cap-card-1-title">Core process areas</h3>
+            <p id="cap-card-1-text">Typical areas of interest include:</p>
+            <ul id="cap-card-1-list">
+              <li>Lithography, including contact aligner, stepper, and selected e-beam related work</li>
+              <li>Thin-film deposition, including PVD, CVD, and ALD-related capability matching</li>
+              <li>Dry etching and deep etching process support</li>
+              <li>Wet chemistry and substrate preparation</li>
+            </ul>
+          </div>
+
+          <div class="card cap-card">
+            <h3 id="cap-card-2-title">Integration and backend areas</h3>
+            <p id="cap-card-2-text">We also cover selected downstream needs:</p>
+            <ul id="cap-card-2-list">
+              <li>Wafer bonding and packaging-related projects</li>
+              <li>Flip-chip, die attach, wire bonding, and dicing support</li>
+              <li>Metrology and characterization-related requirements</li>
+              <li>Pilot-line coordination for structured technical requests</li>
+            </ul>
+          </div>
+
+          <div class="card cap-card">
+            <h3 id="cap-card-3-title">Representative applications</h3>
+            <p id="cap-card-3-text">Example project directions include:</p>
+            <ul id="cap-card-3-list">
+              <li>Piezoelectric MEMS</li>
+              <li>GaN and compound semiconductor devices</li>
+              <li>Micro-LED and heterogeneous integration</li>
+              <li>Advanced concept work including selected quantum-related structures</li>
+            </ul>
+          </div>
+
+          <div class="card cap-card">
+            <h3 id="cap-card-4-title">What clients usually ask for</h3>
+            <p id="cap-card-4-text">Typical consulting requests include:</p>
+            <ul id="cap-card-4-list">
+              <li>Which process route is realistic for this device concept?</li>
+              <li>Which type of facility or partner is likely to fit?</li>
+              <li>How should technical requirements be prepared for discussion?</li>
+              <li>What are the likely constraints in lead time, materials, or integration?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" id="process-label">How It Works</div>
+          <h2 id="process-title">A simple consulting flow for technically specific projects</h2>
+          <p id="process-text">
+            The goal is to make early-stage evaluation and partner matching more structured, faster, and more practical.
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <div class="card process-card">
+            <div class="step-no" id="step-1-no">Step 1</div>
+            <h3 id="step-1-title">Initial inquiry</h3>
+            <p id="step-1-text">You send a short description of the device, material system, process needs, wafer size, timeline, and target objective.</p>
+          </div>
+
+          <div class="card process-card">
+            <div class="step-no" id="step-2-no">Step 2</div>
+            <h3 id="step-2-title">Requirement review</h3>
+            <p id="step-2-text">We review the request from a technical matching perspective and clarify missing details that affect feasibility or partner fit.</p>
+          </div>
+
+          <div class="card process-card">
+            <div class="step-no" id="step-3-no">Step 3</div>
+            <h3 id="step-3-title">Process and partner direction</h3>
+            <p id="step-3-text">Suitable capability paths or partner profiles are identified for further technical discussion, subject to project specifics.</p>
+          </div>
+
+          <div class="card process-card">
+            <div class="step-no" id="step-4-no">Step 4</div>
+            <h3 id="step-4-title">Follow-up coordination</h3>
+            <p id="step-4-text">We support the next communication step so the project discussion starts with clearer technical framing and expectations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="label" id="contact-label">Contact</div>
+          <h2 id="contact-title">Discuss your project requirements</h2>
+          <p id="contact-text">
+            For a more useful first conversation, include your material system, device type, wafer size, key process steps, and expected timeline.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 id="contact-card-1-title">Business contact</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong id="contact-email-label">Email:</strong><br />
+                <a href="mailto:info@bitwerk.eu.com">info@bitwerk.eu.com</a>
+              </div>
+              <div class="contact-item">
+                <strong id="contact-phone-label">Phone:</strong><br />
+                <a href="tel:+4915777905642">+49 15777905642</a>
+              </div>
+              <div class="contact-item">
+                <strong id="contact-location-label">Location:</strong><br />
+                <span id="contact-location-value">Germany</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3 id="contact-card-2-title">Useful details to include</h3>
+            <ul id="contact-card-2-list">
+              <li>Application area or device concept</li>
+              <li>Material system and substrate information</li>
+              <li>Required process steps or integration challenges</li>
+              <li>Wafer size, quantity range, and timeline</li>
+              <li>Prototype, pilot-line, or low-volume objective</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div id="footer-left">© 2025 BitWerk IT · Germany</div>
+      <div>
+        <a href="#" onclick="openModal('impressum'); return false;" id="footer-impressum">Legal Notice</a>
+        &nbsp;|&nbsp;
+        <a href="#" onclick="openModal('privacy'); return false;" id="footer-privacy">Privacy Policy</a>
+      </div>
     </div>
+  </footer>
 
-    <script>
-        const CONTACT_INFO = {
-            name: "BitWerk IT",
-            representative: "Xinchang Zou",
-            address: "Poststr. 24, 98693 Ilmenau",
-            email: "info@bitwerk.eu.com",
-            phone: "+49 15777905642",
-            vat_id: "DE450384414"
-        };
+  <div id="impressum-modal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('impressum')">&times;</span>
+      <div id="impressum-content"></div>
+    </div>
+  </div>
 
-        const LEGAL_TEXTS = {
-            en: {
-                title: "Micro/Nanofabrication Consultation | BitWerk IT",
-                "hero-title": "Micro/Nanofabrication Consultation",
-                "hero-subtitle": "Leveraging Global Network for Cost-Efficient Process Matching.",
+  <div id="privacy-modal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('privacy')">&times;</span>
+      <div id="privacy-content"></div>
+    </div>
+  </div>
 
-                "nav-advantages": "Advantages",
-                "nav-capabilities": "Capabilities",
-                "nav-contact": "Contact",
-                "nav-impressum": "Legal Notice (Impressum)",
-                "nav-privacy": "Privacy Policy",
-                "sticky-nav-advantages": "Advantages",
-                "sticky-nav-capabilities": "Capabilities",
-                "sticky-nav-contact": "Contact",
-                "sticky-nav-impressum": "Legal Notice (Impressum)",
-                "sticky-nav-privacy": "Privacy Policy",
+  <div id="cookie-banner">
+    <div class="modal-content">
+      <p id="cookie-text">
+        We use cookies only where needed for website functionality and user experience. By clicking “Accept”, you consent to the use of cookies as described in our privacy information.
+      </p>
+      <div class="cookie-actions">
+        <button class="cookie-primary" onclick="acceptCookies(true)" id="cookie-accept">Accept</button>
+        <button class="cookie-secondary" onclick="acceptCookies(false)" id="cookie-decline">Decline</button>
+      </div>
+    </div>
+  </div>
 
-                "advantages-h2": "Competitive Advantages: Experience & Network",
-                "adv-1-h3": "Cost-Competitive Matching",
-                "adv-1-p": "Access to a verifiable global network of fabrication partners, enabling cost-effective sourcing for specialized projects.",
-                "adv-2-h3": "Accelerated Delivery",
-                "adv-2-p": "Deep industrial insight allows for rapid identification of available manufacturing capacity, helping to minimize lead times.",
-                "adv-3-h3": "Process Reliability",
-                "adv-3-p": "Years of micro/nanofabrication expertise ensure stringent partner selection and technical oversight for reliable project outcomes.",
+  <script>
+    const CONTACT_INFO = {
+      company: "BitWerk IT",
+      representative: "Xinchang Zou",
+      address: "Poststr. 24, 98693 Ilmenau, Germany",
+      email: "info@bitwerk.eu.com",
+      phone: "+49 15777905642",
+      vatId: "DE450384414"
+    };
 
-                "capabilities-h2": "Supported Micro/Nanofabrication Capabilities (Facility Access)",
-                "capabilities-intro": "We facilitate access to advanced R&D and pilot/volume production lines (including 6-inch R&D and 8-inch pilot lines). Our network supports a comprehensive range of process packages and equipment:",
-                "cap-group-1-h3": "Lithography",
-                "cap-group-1-ul": `<li><strong>Equipment:</strong> Double-side Contact Aligner, Stepper Projection System.</li><li><strong>Advanced:</strong> Electron Beam Lithography (E-beam).</li><li><strong>Application:</strong> Patterning for MEMS, III-V devices, and specialized structures.</li>`,
-                "cap-group-2-h3": "Deposition",
-                "cap-group-2-ul": `<li><strong>PVD:</strong> Magnetron Sputtering, E-beam Evaporation, Thermal Evaporation, Pulsed Laser Deposition (PLD).</li><li><strong>CVD:</strong> PECVD, ICPCVD, LPCVD, MPCVD.</li><li><strong>Special:</strong> Atomic Layer Deposition (ALD) support for precision film growth.</li>`,
-                "cap-group-3-h3": "Plasma Etching",
-                "cap-group-3-ul": `<li><strong>Equipment:</strong> RIE, ICP, NLD-ICP.</li><li><strong>Precision:</strong> Ion Beam Etching (IBE), Trimming.</li><li><strong>Deep Etching:</strong> Deep RIE (DRIE) for high aspect ratio structures, VHF (Very High Frequency) etching.</li>`,
-                "cap-group-4-h3": "Assembly & Packaging",
-                "cap-group-4-ul": `<li><strong>Wafer Level:</strong> Wafer Bonding (Si-Glass, Au-In, Au-Sn, etc.), TSV/TGV (high aspect ratio).</li><li><strong>Chip Level:</strong> Flip-chip bonding, Die Attach, Wire Bonding, Dispensing.</li><li><strong>Finishing:</strong> Thinning, CMP, Dicing, Integrated Packaging Solutions.</li>`,
-                "cap-group-5-h3": "Analytics & Metrology",
-                "cap-group-5-ul": `<li><strong>Thickness/Profile:</strong> Profilometer, Film Thickness Measurement.</li><li><strong>Material/Structure:</strong> X-ray, AFM, Ultrasonic Testing.</li><li><strong>Electrical/Mechanical:</strong> I-V/C-V testing, Tensile Testing, Electrical characterization.</li>`,
-                "cap-group-6-h3": "Wet Chemistry & Substrate Prep",
-                "cap-group-6-ul": `<li><strong>Epitaxy Support:</strong> Access to GaN, InP, GaAs epitaxial growth, and support for Si/Sapphire/Glass substrates.</li><li><strong>Wet Processes:</strong> Standard acid/solvent wet benches for etching, cleaning, and lift-off processes.</li><li><strong>Specialized Etching:</strong> Wet chemical etching for specific material removal (e.g., Silicon, Oxide).</li>`,
-                "cap-group-7-h3": "Advanced Applications",
-                "cap-group-7-ul": `<li><strong>Piezoelectric MEMS:</strong> (002) preferred AlScN processing (with ion milling) and PZT.</li><li><strong>Compound Semi:</strong> GaN HEMT (D/E-mode, DCFL/CMOS), Micro-LED (8&quot; monolithic integration).</li><li><strong>Integration:</strong> Chiplet technology, Heterogeneous Integration.</li><li><strong>Quantum:</strong> MEMS-based Atomic Vapor Cell (Rb, Cs, buffer gas filling).</li>`,
+    const TEXTS = {
+      en: {
+        "page-title": "Micro/Nanofabrication Consulting in Germany | BitWerk IT",
+        "hero-eyebrow": "Germany-based technical consulting",
+        "hero-title": "Micro/Nanofabrication process sourcing and technical consulting for R&D and pilot-line projects",
+        "hero-subtitle": "We help research teams, startups, and industrial clients identify suitable fabrication routes and qualified partners for MEMS, compound semiconductor, advanced packaging, and related process needs.",
+        "hero-point-1": "Faster partner matching for specialized process requirements",
+        "hero-point-2": "Cross-border technical coordination with a Germany-based contact point",
+        "hero-point-3": "Support for prototyping, pilot production, and selected low-volume projects",
+        "cta-primary": "Request Consultation",
+        "cta-secondary": "Contact Details",
+        "hero-card-title": "What we help with",
+        "hero-card-list": `
+          <li>Feasibility-oriented process matching for specialized device concepts</li>
+          <li>Identification of suitable fabrication capabilities and partner profiles</li>
+          <li>Support for MEMS, GaN, Micro-LED, wafer bonding, and packaging-related projects</li>
+          <li>Early-stage coordination for technical requirements, timelines, and communication</li>
+        `,
 
-                "contact-h2": "Contact Us for Consultation",
-                "contact-p-1": "Start your next micro/nanofabrication project with confidence. Contact our German office today.",
-                "contact-p2": "<strong>Email:</strong>",
-                "contact-p3": "<strong>Phone:</strong>",
+        "nav-why": "Why BitWerk",
+        "nav-who": "Who We Work With",
+        "nav-capabilities": "Capabilities",
+        "nav-process": "How It Works",
+        "nav-contact": "Contact",
+        "nav-impressum": "Legal Notice",
+        "nav-privacy": "Privacy Policy",
 
-                "footer-text": "© 2025 BitWerk IT - Germany",
-                "footer-impressum": "Legal Notice (Impressum)",
-                "footer-privacy": "Privacy Policy (Datenschutz)",
+        "why-label": "Why BitWerk",
+        "why-title": "A practical consulting interface between technical demand and fabrication capability",
+        "why-text": "BitWerk IT supports clients who need a clearer path from concept to fabrication. We focus on technical fit, communication efficiency, and realistic process matching for projects where generic sourcing is not enough.",
+        "why-card-1-title": "Technical relevance",
+        "why-card-1-text": "We focus on specialized micro/nanofabrication requirements where process details, material systems, and facility access matter.",
+        "why-card-2-title": "Efficient coordination",
+        "why-card-2-text": "A Germany-based contact point helps reduce friction in early-stage communication, requirement clarification, and project alignment.",
+        "why-card-3-title": "Fit over volume",
+        "why-card-3-text": "The goal is not to list every possible supplier, but to identify suitable options for the specific technical and commercial context.",
+        "trust-1": "MEMS & microfabrication focus",
+        "trust-2": "Compound semiconductor familiarity",
+        "trust-3": "Pilot-line and prototyping oriented",
+        "trust-4": "Germany-based business contact",
 
-                "cookie-text": 'We use cookies to ensure the functionality and performance of our website. By clicking "Accept All", you agree to the use of all cookies.',
-                "cookie-accept": "Accept All",
-                "cookie-decline": "Decline",
+        "who-label": "Who We Work With",
+        "who-title": "Suitable for technical teams that need capable process support, not generic procurement",
+        "who-text": "Our services are designed for clients with real process questions, emerging device concepts, or partner selection challenges.",
+        "who-card-1-title": "Research groups",
+        "who-card-1-list": `
+          <li>Universities and institutes</li>
+          <li>Device concept validation</li>
+          <li>Prototype-oriented fabrication access</li>
+        `,
+        "who-card-2-title": "Startups",
+        "who-card-2-list": `
+          <li>Early-stage product development</li>
+          <li>Process route evaluation</li>
+          <li>Pilot build preparation</li>
+        `,
+        "who-card-3-title": "Industrial teams",
+        "who-card-3-list": `
+          <li>Special projects and feasibility checks</li>
+          <li>External process capability search</li>
+          <li>Packaging and integration support</li>
+        `,
+        "who-card-4-title": "International clients",
+        "who-card-4-list": `
+          <li>Cross-border technical coordination</li>
+          <li>German contact interface</li>
+          <li>Clearer requirement communication</li>
+        `,
 
-                "impr-h2": "Legal Notice (Impressum)",
-                "impr-info": "Information according to § 5 TMG",
-                "impr-name": "Registered Name:",
-                "impr-rep": "Represented by (Managing Director):",
-                "impr-address": "Address:",
-                "impr-contact": "Contact:",
-                "impr-vat-h3": "VAT Information",
-                "impr-vat-id": "VAT Identification Number (USt-IDNr.):",
-                "impr-vat-note": "Note: We primarily serve B2B clients and display prices net of VAT. VAT will be added or shifted according to EU regulations.",
+        "cap-label": "Capabilities",
+        "cap-title": "Representative process and application areas",
+        "cap-text": "We support technical scoping and partner identification across a range of micro/nanofabrication-related areas, including prototyping and selected pilot-line needs.",
+        "cap-card-1-title": "Core process areas",
+        "cap-card-1-text": "Typical areas of interest include:",
+        "cap-card-1-list": `
+          <li>Lithography, including contact aligner, stepper, and selected e-beam related work</li>
+          <li>Thin-film deposition, including PVD, CVD, and ALD-related capability matching</li>
+          <li>Dry etching and deep etching process support</li>
+          <li>Wet chemistry and substrate preparation</li>
+        `,
+        "cap-card-2-title": "Integration and backend areas",
+        "cap-card-2-text": "We also cover selected downstream needs:",
+        "cap-card-2-list": `
+          <li>Wafer bonding and packaging-related projects</li>
+          <li>Flip-chip, die attach, wire bonding, and dicing support</li>
+          <li>Metrology and characterization-related requirements</li>
+          <li>Pilot-line coordination for structured technical requests</li>
+        `,
+        "cap-card-3-title": "Representative applications",
+        "cap-card-3-text": "Example project directions include:",
+        "cap-card-3-list": `
+          <li>Piezoelectric MEMS</li>
+          <li>GaN and compound semiconductor devices</li>
+          <li>Micro-LED and heterogeneous integration</li>
+          <li>Advanced concept work including selected quantum-related structures</li>
+        `,
+        "cap-card-4-title": "What clients usually ask for",
+        "cap-card-4-text": "Typical consulting requests include:",
+        "cap-card-4-list": `
+          <li>Which process route is realistic for this device concept?</li>
+          <li>Which type of facility or partner is likely to fit?</li>
+          <li>How should technical requirements be prepared for discussion?</li>
+          <li>What are the likely constraints in lead time, materials, or integration?</li>
+        `,
 
-                "priv-h2": "Privacy Policy (Datenschutzerklärung)",
-                "priv-p1": 'This privacy policy informs you about the nature, scope, and purpose of the processing of personal data (hereinafter referred to as "data") within our online offering.',
-                "priv-responsible-h3": "1. Responsible Party",
-                "priv-responsible-p": `Responsible for data processing is the company ${CONTACT_INFO.name}.`,
-                "priv-data-h3": "2. Types of Data Processed",
-                "priv-data-p": "We process basic communication and usage data. This includes IP addresses, browser information, and website visit timestamps, primarily for technical security and functionality. If you contact us via email, we process your email address and message content for the purpose of communication.",
-                "priv-rights-h3": "3. Your Rights (GDPR)",
-                "priv-rights-p": "You have the right to request confirmation as to whether data concerning you is being processed, information about this data, and a copy of the data. You also have the right to request the completion or correction of data concerning you or the restriction of processing (Art. 15-21 GDPR). Please direct all inquiries to the contact details provided in the Impressum.",
-                "priv-note": "Note: This policy provides general information. We do not use third-party tracking (e.g., Google Analytics) without explicit consent via the cookie banner."
-            },
+        "process-label": "How It Works",
+        "process-title": "A simple consulting flow for technically specific projects",
+        "process-text": "The goal is to make early-stage evaluation and partner matching more structured, faster, and more practical.",
+        "step-1-no": "Step 1",
+        "step-1-title": "Initial inquiry",
+        "step-1-text": "You send a short description of the device, material system, process needs, wafer size, timeline, and target objective.",
+        "step-2-no": "Step 2",
+        "step-2-title": "Requirement review",
+        "step-2-text": "We review the request from a technical matching perspective and clarify missing details that affect feasibility or partner fit.",
+        "step-3-no": "Step 3",
+        "step-3-title": "Process and partner direction",
+        "step-3-text": "Suitable capability paths or partner profiles are identified for further technical discussion, subject to project specifics.",
+        "step-4-no": "Step 4",
+        "step-4-title": "Follow-up coordination",
+        "step-4-text": "We support the next communication step so the project discussion starts with clearer technical framing and expectations.",
 
-            de: {
-                title: "Mikro/Nanofabrikationsberatung | BitWerk IT",
-                "hero-title": "Mikro/Nanofabrikationsberatung",
-                "hero-subtitle": "Nutzung eines globalen Netzwerks für kosteneffiziente Prozessvermittlung.",
+        "contact-label": "Contact",
+        "contact-title": "Discuss your project requirements",
+        "contact-text": "For a more useful first conversation, include your material system, device type, wafer size, key process steps, and expected timeline.",
+        "contact-card-1-title": "Business contact",
+        "contact-email-label": "Email:",
+        "contact-phone-label": "Phone:",
+        "contact-location-label": "Location:",
+        "contact-location-value": "Germany",
+        "contact-card-2-title": "Useful details to include",
+        "contact-card-2-list": `
+          <li>Application area or device concept</li>
+          <li>Material system and substrate information</li>
+          <li>Required process steps or integration challenges</li>
+          <li>Wafer size, quantity range, and timeline</li>
+          <li>Prototype, pilot-line, or low-volume objective</li>
+        `,
 
-                "nav-advantages": "Vorteile",
-                "nav-capabilities": "Fähigkeiten",
-                "nav-contact": "Kontakt",
-                "nav-impressum": "Impressum",
-                "nav-privacy": "Datenschutz",
-                "sticky-nav-advantages": "Vorteile",
-                "sticky-nav-capabilities": "Fähigkeiten",
-                "sticky-nav-contact": "Kontakt",
-                "sticky-nav-impressum": "Impressum",
-                "sticky-nav-privacy": "Datenschutz",
+        "footer-left": "© 2025 BitWerk IT · Germany",
+        "footer-impressum": "Legal Notice",
+        "footer-privacy": "Privacy Policy",
 
-                "advantages-h2": "Wettbewerbsvorteile: Erfahrung & Netzwerk",
-                "adv-1-h3": "Wettbewerbsfähige Preise",
-                "adv-1-p": "Zugang zu einem überprüfbaren globalen Netzwerk von Fertigungspartnern, das kosteneffiziente Beschaffung für spezialisierte Projekte ermöglicht.",
-                "adv-2-h3": "Beschleunigte Lieferung",
-                "adv-2-p": "Tiefgreifende Branchenkenntnisse ermöglichen die schnelle Identifizierung verfügbarer Fertigungskapazitäten, wodurch Vorlaufzeiten minimiert werden.",
-                "adv-3-h3": "Prozesszuverlässigkeit",
-                "adv-3-p": "Jahrelange Expertise in der Mikro-/Nanofabrikation gewährleistet eine strenge Partnerauswahl und technische Überwachung für zuverlässige Projektergebnisse.",
+        "cookie-text": "We use cookies only where needed for website functionality and user experience. By clicking “Accept”, you consent to the use of cookies as described in our privacy information.",
+        "cookie-accept": "Accept",
+        "cookie-decline": "Decline",
 
-                "capabilities-h2": "Unterstützte Mikro/Nanofabrikationsfähigkeiten (Anlagenzugang)",
-                "capabilities-intro": "Wir ermöglichen den Zugang zu fortschrittlichen F&E- sowie Pilot-/Volumenproduktionslinien (einschließlich 6-Zoll F&E und 8-Zoll Pilotlinien). Unser Netzwerk unterstützt ein umfassendes Angebot an Prozesspaketen und Geräten:",
-                "cap-group-1-h3": "Lithographie",
-                "cap-group-1-ul": `<li><strong>Ausrüstung:</strong> Doppelseitiger Kontaktbelichter (Double-side Contact Aligner), Stepper-Projektionssystem.</li><li><strong>Fortgeschritten:</strong> Elektronenstrahllithographie (E-beam).</li><li><strong>Anwendung:</strong> Strukturierung für MEMS, III-V-Bauelemente und Spezialstrukturen.</li>`,
-                "cap-group-2-h3": "Abscheidung (Deposition)",
-                "cap-group-2-ul": `<li><strong>PVD:</strong> Magnetron-Sputtern, Elektronenstrahlverdampfung, thermische Verdampfung, gepulste Laserabscheidung (PLD).</li><li><strong>CVD:</strong> PECVD, ICPCVD, LPCVD, MPCVD.</li><li><strong>Spezial:</strong> Unterstützung für Atomlagenabscheidung (ALD) für Präzisionsfilme.</li>`,
-                "cap-group-3-h3": "Plasmaätzen",
-                "cap-group-3-ul": `<li><strong>Ausrüstung:</strong> RIE, ICP, NLD-ICP.</li><li><strong>Präzision:</strong> Ionenstrahlätzen (IBE), Trimming.</li><li><strong>Tiefenätzen:</strong> Deep RIE (DRIE) für Strukturen mit hohem Aspektverhältnis, VHF-Ätzen.</li>`,
-                "cap-group-4-h3": "Montage & Verpackung",
-                "cap-group-4-ul": `<li><strong>Wafer-Ebene:</strong> Wafer-Bonding (Si-Glas, Au-In, Au-Sn usw.), TSV/TGV (hohes Aspektverhältnis).</li><li><strong>Chip-Ebene:</strong> Flip-Chip-Bonding, Die-Attach, Drahtbonden, Dosieren.</li><li><strong>Fertigstellung:</strong> Verdünnen, CMP, Trennen (Dicing), integrierte Verpackungslösungen.</li>`,
-                "cap-group-5-h3": "Analytik & Messtechnik",
-                "cap-group-5-ul": `<li><strong>Dicke/Profil:</strong> Profilometer, Schichtdickenmessung.</li><li><strong>Material/Struktur:</strong> Röntgen, AFM, Ultraschallprüfung.</li><li><strong>Elektrisch/Mechanisch:</strong> I-V/C-V-Tests, Zugversuche, elektrische Charakterisierung.</li>`,
-                "cap-group-6-h3": "Nasschemie & Substratvorbereitung",
-                "cap-group-6-ul": `<li><strong>Epitaxie-Unterstützung:</strong> Zugang zu GaN-, InP-, GaAs-Epitaxialwachstum und Unterstützung für Si-/Saphir-/Glas-Substrate.</li><li><strong>Nassprozesse:</strong> Standard-Säure-/Lösungsmittel-Nassbänke für Ätz-, Reinigungs- und Lift-off-Prozesse.</li><li><strong>Spezialisiertes Ätzen:</strong> Nasschemisches Ätzen zur Entfernung spezifischer Materialien (z. B. Silizium, Oxid).</li>`,
-                "cap-group-7-h3": "Fortgeschrittene Anwendungen",
-                "cap-group-7-ul": `<li><strong>Piezoelektrische MEMS:</strong> (002) bevorzugte AlScN-Verarbeitung (mit Ionenfräsen) und PZT.</li><li><strong>Verbindungshalbleiter:</strong> GaN HEMT (D/E-Mode, DCFL/CMOS), Micro-LED (8&quot; monolithische Integration).</li><li><strong>Integration:</strong> Chiplet-Technologie, heterogene Integration.</li><li><strong>Quanten:</strong> MEMS-basierte Atom-Dampfzellen-Technologie (Rb, Cs, Puffergasbefüllung).</li>`,
+        "impr-title": "Legal Notice (Impressum)",
+        "impr-subtitle": "Information according to § 5 TMG",
+        "impr-company": "Company:",
+        "impr-representative": "Represented by:",
+        "impr-address": "Address:",
+        "impr-contact": "Contact:",
+        "impr-vat": "VAT ID:",
+        "privacy-title": "Privacy Policy",
+        "privacy-body": `
+          <p>This website provides general company and service information. Personal data may be processed when you contact us by email or when technically necessary for website operation.</p>
+          <p>Responsible party: ${CONTACT_INFO.company}, ${CONTACT_INFO.address}</p>
+          <p>For privacy-related inquiries, please contact: <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a></p>
+          <p>Further legal detail should be reviewed and adapted to your actual hosting, analytics, embedded content, and cookie usage.</p>
+        `
+      },
 
-                "contact-h2": "Kontakt für Beratung",
-                "contact-p-1": "Starten Sie Ihr nächstes Mikro-/Nanofabrikationsprojekt mit Vertrauen. Kontaktieren Sie noch heute unser Büro in Deutschland.",
-                "contact-p2": "<strong>E-Mail:</strong>",
-                "contact-p3": "<strong>Telefon:</strong>",
+      de: {
+        "page-title": "Mikro-/Nanofabrikationsberatung in Deutschland | BitWerk IT",
+        "hero-eyebrow": "Technische Beratung mit Standort Deutschland",
+        "hero-title": "Mikro-/Nanofabrikationsberatung sowie Prozess- und Partnervermittlung für F&E- und Pilotlinienprojekte",
+        "hero-subtitle": "Wir unterstützen Forschungsteams, Start-ups und Industrieunternehmen dabei, geeignete Fertigungswege und passende Partner für MEMS, Verbindungshalbleiter, Advanced Packaging und verwandte Prozessanforderungen zu identifizieren.",
+        "hero-point-1": "Schnellere Partnervorauswahl für spezialisierte Prozessanforderungen",
+        "hero-point-2": "Technische Abstimmung über einen geschäftlichen Ansprechpartner in Deutschland",
+        "hero-point-3": "Unterstützung für Prototypen, Pilotfertigung und ausgewählte Kleinserienprojekte",
+        "cta-primary": "Beratung anfragen",
+        "cta-secondary": "Kontaktdaten",
+        "hero-card-title": "Wobei wir unterstützen",
+        "hero-card-list": `
+          <li>Prozessorientierte Machbarkeits- und Partnervorabstimmung für spezialisierte Bauteilkonzepte</li>
+          <li>Identifikation passender Fertigungskompetenzen und Partnerprofile</li>
+          <li>Unterstützung für MEMS-, GaN-, Micro-LED-, Wafer-Bonding- und Packaging-nahe Projekte</li>
+          <li>Frühphasige Abstimmung zu technischen Anforderungen, Zeitplänen und Kommunikation</li>
+        `,
 
-                "footer-text": "© 2025 BitWerk IT - Deutschland",
-                "footer-impressum": "Impressum",
-                "footer-privacy": "Datenschutz",
+        "nav-why": "Warum BitWerk",
+        "nav-who": "Für wen",
+        "nav-capabilities": "Kompetenzen",
+        "nav-process": "Ablauf",
+        "nav-contact": "Kontakt",
+        "nav-impressum": "Impressum",
+        "nav-privacy": "Datenschutz",
 
-                "cookie-text": 'Wir verwenden Cookies, um die Funktionalität und Leistung unserer Website zu gewährleisten. Mit Klick auf "Alle akzeptieren" stimmen Sie der Verwendung aller Cookies zu.',
-                "cookie-accept": "Alle akzeptieren",
-                "cookie-decline": "Ablehnen",
+        "why-label": "Warum BitWerk",
+        "why-title": "Eine praxisnahe Schnittstelle zwischen technischem Bedarf und Fertigungskompetenz",
+        "why-text": "BitWerk IT unterstützt Kunden, die einen klareren Weg vom Konzept zur Fertigung benötigen. Im Mittelpunkt stehen technischer Fit, effiziente Kommunikation und realistische Prozesszuordnung für Projekte, bei denen generische Beschaffung nicht ausreicht.",
+        "why-card-1-title": "Technische Relevanz",
+        "why-card-1-text": "Wir konzentrieren uns auf spezialisierte Mikro-/Nanofabrikationsanforderungen, bei denen Prozessdetails, Materialsysteme und Anlagenzugang entscheidend sind.",
+        "why-card-2-title": "Effiziente Abstimmung",
+        "why-card-2-text": "Ein Ansprechpartner in Deutschland reduziert Reibung in der frühen Kommunikation, bei der Klärung von Anforderungen und bei der Projektabstimmung.",
+        "why-card-3-title": "Passung vor Menge",
+        "why-card-3-text": "Das Ziel ist nicht eine möglichst lange Lieferantenliste, sondern passende Optionen für den konkreten technischen und kommerziellen Kontext zu identifizieren.",
+        "trust-1": "Fokus auf MEMS & Mikrostrukturierung",
+        "trust-2": "Erfahrung mit Verbindungshalbleitern",
+        "trust-3": "Ausrichtung auf Pilotlinie und Prototyping",
+        "trust-4": "Geschäftskontakt in Deutschland",
 
-                "impr-h2": "Impressum",
-                "impr-info": "Angaben gemäß § 5 Telemediengesetz (TMG)",
-                "impr-name": "Eingetragener Name:",
-                "impr-rep": "Vertreten durch (Geschäftsführer):",
-                "impr-address": "Adresse:",
-                "impr-contact": "Kontakt:",
-                "impr-vat-h3": "Umsatzsteuer-Information",
-                "impr-vat-id": "Umsatzsteuer-Identifikationsnummer (USt-IDNr.):",
-                "impr-vat-note": "Hinweis: Wir betreuen primär B2B-Kunden und zeigen Preise exklusive Mehrwertsteuer an. Die Umsatzsteuer wird gemäß den EU-Vorschriften hinzugerechnet oder verlagert.",
+        "who-label": "Für wen",
+        "who-title": "Geeignet für technische Teams, die echte Prozessunterstützung benötigen",
+        "who-text": "Unsere Leistungen richten sich an Kunden mit konkreten Prozessfragen, neuen Bauteilkonzepten oder Herausforderungen bei der Partnerauswahl.",
+        "who-card-1-title": "Forschungsgruppen",
+        "who-card-1-list": `
+          <li>Universitäten und Institute</li>
+          <li>Validierung von Bauteilkonzepten</li>
+          <li>Zugang zu prototypenorientierter Fertigung</li>
+        `,
+        "who-card-2-title": "Start-ups",
+        "who-card-2-list": `
+          <li>Frühe Produktentwicklung</li>
+          <li>Bewertung von Prozessrouten</li>
+          <li>Vorbereitung von Pilotaufbauten</li>
+        `,
+        "who-card-3-title": "Industrieunternehmen",
+        "who-card-3-list": `
+          <li>Sonderprojekte und Machbarkeitsprüfungen</li>
+          <li>Suche nach externer Prozesskompetenz</li>
+          <li>Unterstützung bei Packaging und Integration</li>
+        `,
+        "who-card-4-title": "Internationale Kunden",
+        "who-card-4-list": `
+          <li>Grenzüberschreitende technische Abstimmung</li>
+          <li>Kontaktstelle in Deutschland</li>
+          <li>Klarere Anforderungskommunikation</li>
+        `,
 
-                "priv-h2": "Datenschutzerklärung",
-                "priv-p1": "Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten innerhalb unseres Onlineangebotes auf.",
-                "priv-responsible-h3": "1. Verantwortliche Stelle",
-                "priv-responsible-p": `Verantwortlich für die Datenverarbeitung ist das Unternehmen ${CONTACT_INFO.name}.`,
-                "priv-data-h3": "2. Arten der verarbeiteten Daten",
-                "priv-data-p": "Wir verarbeiten grundlegende Kommunikations- und Nutzungsdaten. Dazu gehören IP-Adressen, Browserinformationen und Zeitstempel der Website-Besuche, primär zur technischen Sicherheit und Funktionalität. Sofern Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre E-Mail-Adresse und den Nachrichteninhalt zum Zwecke der Kommunikation.",
-                "priv-rights-h3": "3. Ihre Rechte (DSGVO)",
-                "priv-rights-p": "Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden, Auskunft über diese Daten sowie eine Kopie der Daten zu verlangen. Sie haben ferner das Recht, die Vervollständigung oder Berichtigung der Sie betreffenden Daten oder die Einschränkung der Verarbeitung zu verlangen (Art. 15–21 DSGVO). Richten Sie alle Anfragen bitte an die im Impressum angegebene Kontaktadresse.",
-                "priv-note": "Hinweis: Diese Richtlinie bietet allgemeine Informationen. Wir verwenden keine externen Tracking-Dienste ohne Ihre explizite Zustimmung über das Cookie-Banner."
-            }
-        };
+        "cap-label": "Kompetenzen",
+        "cap-title": "Repräsentative Prozess- und Anwendungsbereiche",
+        "cap-text": "Wir unterstützen die technische Einordnung und Partneridentifikation in verschiedenen Bereichen der Mikro-/Nanofabrikation, einschließlich Prototyping und ausgewählter Pilotlinienanforderungen.",
+        "cap-card-1-title": "Kernprozesse",
+        "cap-card-1-text": "Typische Themenbereiche sind:",
+        "cap-card-1-list": `
+          <li>Lithographie, einschließlich Kontaktbelichtung, Stepper und ausgewählter E-Beam-bezogener Anforderungen</li>
+          <li>Dünnschichtabscheidung, einschließlich PVD-, CVD- und ALD-bezogener Kompetenzzuordnung</li>
+          <li>Trockenätzen und Tiefenätzprozesse</li>
+          <li>Nasschemie und Substratvorbereitung</li>
+        `,
+        "cap-card-2-title": "Integration und Backend",
+        "cap-card-2-text": "Wir decken außerdem ausgewählte nachgelagerte Anforderungen ab:",
+        "cap-card-2-list": `
+          <li>Wafer-Bonding- und Packaging-nahe Projekte</li>
+          <li>Flip-Chip, Die-Attach, Drahtbonden und Dicing</li>
+          <li>Messtechnik- und Charakterisierungsanforderungen</li>
+          <li>Pilotlinienabstimmung für strukturierte technische Anfragen</li>
+        `,
+        "cap-card-3-title": "Beispielhafte Anwendungen",
+        "cap-card-3-text": "Typische Projektrichtungen sind:",
+        "cap-card-3-list": `
+          <li>Piezoelektrische MEMS</li>
+          <li>GaN- und Verbindungshalbleiterbauelemente</li>
+          <li>Micro-LED und heterogene Integration</li>
+          <li>Fortgeschrittene Konzepte einschließlich ausgewählter quantennaher Strukturen</li>
+        `,
+        "cap-card-4-title": "Typische Kundenfragen",
+        "cap-card-4-text": "Häufige Beratungsanfragen sind:",
+        "cap-card-4-list": `
+          <li>Welche Prozessroute ist für dieses Bauteilkonzept realistisch?</li>
+          <li>Welcher Anlagentyp oder Partner ist voraussichtlich geeignet?</li>
+          <li>Wie sollten technische Anforderungen für Gespräche vorbereitet werden?</li>
+          <li>Welche typischen Einschränkungen gibt es bei Lieferzeit, Materialien oder Integration?</li>
+        `,
 
-        function generateLegalContent(type, lang) {
-            const texts = LEGAL_TEXTS[lang];
-            let content = "";
+        "process-label": "Ablauf",
+        "process-title": "Ein einfacher Beratungsablauf für technisch spezifische Projekte",
+        "process-text": "Ziel ist es, die frühe Bewertung und Partnerzuordnung strukturierter, schneller und praktischer zu machen.",
+        "step-1-no": "Schritt 1",
+        "step-1-title": "Erstanfrage",
+        "step-1-text": "Sie senden eine kurze Beschreibung des Bauteils, des Materialsystems, der Prozessanforderungen, der Wafergröße, des Zeitplans und des Zielbilds.",
+        "step-2-no": "Schritt 2",
+        "step-2-title": "Anforderungsprüfung",
+        "step-2-text": "Wir prüfen die Anfrage aus Sicht der technischen Zuordnung und klären fehlende Details, die Machbarkeit oder Partnerfit beeinflussen.",
+        "step-3-no": "Schritt 3",
+        "step-3-title": "Prozess- und Partnerrichtung",
+        "step-3-text": "Geeignete Kompetenzpfade oder Partnerprofile werden zur weiteren technischen Diskussion identifiziert, abhängig von den Projektdetails.",
+        "step-4-no": "Schritt 4",
+        "step-4-title": "Weitere Abstimmung",
+        "step-4-text": "Wir unterstützen den nächsten Kommunikationsschritt, damit die Projektdiskussion mit klarerer technischer Einordnung starten kann.",
 
-            if (type === "impressum") {
-                content = `
-                    <h2>${texts["impr-h2"]}</h2>
-                    <h3>${texts["impr-info"]}</h3>
-                    <p>
-                        <strong>${texts["impr-name"]}</strong> ${CONTACT_INFO.name}<br>
-                        <strong>${texts["impr-address"]}</strong> ${CONTACT_INFO.address}
-                    </p>
-                    <p>
-                        <strong>${texts["impr-rep"]}</strong> ${CONTACT_INFO.representative}
-                    </p>
-                    <p>
-                        <strong>${texts["impr-contact"]}</strong><br>
-                        E-Mail: <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a><br>
-                        Telefon: ${CONTACT_INFO.phone}
-                    </p>
-                    <h3>${texts["impr-vat-h3"]}</h3>
-                    <p>
-                        <strong>${texts["impr-vat-id"]}</strong> ${CONTACT_INFO.vat_id}<br>
-                        ${texts["impr-vat-note"]}
-                    </p>
-                `;
-            } else if (type === "privacy") {
-                const contactReference = lang === "de" ? "Kontakt siehe Impressum." : "See contact details in the Impressum.";
+        "contact-label": "Kontakt",
+        "contact-title": "Besprechen Sie Ihre Projektanforderungen",
+        "contact-text": "Für ein sinnvolleres erstes Gespräch nennen Sie bitte Materialsystem, Bauteiltyp, Wafergröße, wichtige Prozessschritte und den gewünschten Zeitrahmen.",
+        "contact-card-1-title": "Geschäftskontakt",
+        "contact-email-label": "E-Mail:",
+        "contact-phone-label": "Telefon:",
+        "contact-location-label": "Standort:",
+        "contact-location-value": "Deutschland",
+        "contact-card-2-title": "Sinnvolle Angaben für die Anfrage",
+        "contact-card-2-list": `
+          <li>Anwendungsbereich oder Bauteilkonzept</li>
+          <li>Materialsystem und Substratinformationen</li>
+          <li>Benötigte Prozessschritte oder Integrationsherausforderungen</li>
+          <li>Wafergröße, Mengenbereich und Zeitplan</li>
+          <li>Prototyp-, Pilotlinien- oder Kleinserienziel</li>
+        `,
 
-                content = `
-                    <h2>${texts["priv-h2"]}</h2>
-                    <p>${texts["priv-p1"]}</p>
+        "footer-left": "© 2025 BitWerk IT · Deutschland",
+        "footer-impressum": "Impressum",
+        "footer-privacy": "Datenschutz",
 
-                    <h3>${texts["priv-responsible-h3"]}</h3>
-                    <p>${texts["priv-responsible-p"]}</p>
-                    <p>${contactReference}</p>
+        "cookie-text": "Wir verwenden Cookies nur dort, wo sie für Funktionalität und Nutzererfahrung erforderlich sind. Mit Klick auf „Akzeptieren“ stimmen Sie der Verwendung entsprechend unserer Datenschutzhinweise zu.",
+        "cookie-accept": "Akzeptieren",
+        "cookie-decline": "Ablehnen",
 
-                    <h3>${texts["priv-data-h3"]}</h3>
-                    <p>${texts["priv-data-p"]}</p>
+        "impr-title": "Impressum",
+        "impr-subtitle": "Angaben gemäß § 5 TMG",
+        "impr-company": "Unternehmen:",
+        "impr-representative": "Vertreten durch:",
+        "impr-address": "Adresse:",
+        "impr-contact": "Kontakt:",
+        "impr-vat": "USt-IdNr.:",
+        "privacy-title": "Datenschutzerklärung",
+        "privacy-body": `
+          <p>Diese Website stellt allgemeine Unternehmens- und Leistungsinformationen bereit. Personenbezogene Daten können verarbeitet werden, wenn Sie uns per E-Mail kontaktieren oder soweit dies technisch für den Betrieb der Website erforderlich ist.</p>
+          <p>Verantwortliche Stelle: ${CONTACT_INFO.company}, ${CONTACT_INFO.address}</p>
+          <p>Für datenschutzbezogene Anfragen kontaktieren Sie bitte: <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a></p>
+          <p>Weitere rechtliche Details sollten an Ihr tatsächliches Hosting, mögliche Analysewerkzeuge, eingebettete Inhalte und Ihre Cookie-Nutzung angepasst werden.</p>
+        `
+      }
+    };
 
-                    <h3>${texts["priv-rights-h3"]}</h3>
-                    <p>${texts["priv-rights-p"]}</p>
-                    <p><em>${texts["priv-note"]}</em></p>
-                `;
-            }
+    function setText(id, value, useHTML = false) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (useHTML) el.innerHTML = value;
+      else el.textContent = value;
+    }
 
-            return content;
-        }
+    function generateImpressum(lang) {
+      const t = TEXTS[lang];
+      return `
+        <h2>${t["impr-title"]}</h2>
+        <p><strong>${t["impr-subtitle"]}</strong></p>
+        <p><strong>${t["impr-company"]}</strong> ${CONTACT_INFO.company}</p>
+        <p><strong>${t["impr-representative"]}</strong> ${CONTACT_INFO.representative}</p>
+        <p><strong>${t["impr-address"]}</strong> ${CONTACT_INFO.address}</p>
+        <p><strong>${t["impr-contact"]}</strong><br>
+        E-Mail: <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a><br>
+        Tel.: ${CONTACT_INFO.phone}</p>
+        <p><strong>${t["impr-vat"]}</strong> ${CONTACT_INFO.vatId}</p>
+      `;
+    }
 
-        function openModal(type) {
-            const modal = document.getElementById(`${type}-modal`);
-            const currentLang = document.documentElement.lang || "en";
+    function generatePrivacy(lang) {
+      const t = TEXTS[lang];
+      return `
+        <h2>${t["privacy-title"]}</h2>
+        ${t["privacy-body"]}
+      `;
+    }
 
-            document.getElementById(`${type}-content`).innerHTML = generateLegalContent(type, currentLang);
-            modal.style.display = "flex";
-            document.body.classList.add("no-scroll");
+    function openModal(type) {
+      const lang = document.documentElement.lang || "en";
+      const modal = document.getElementById(`${type}-modal`);
+      const content = document.getElementById(`${type}-content`);
+      content.innerHTML = type === "impressum" ? generateImpressum(lang) : generatePrivacy(lang);
+      modal.style.display = "flex";
+      document.body.classList.add("no-scroll");
+    }
 
-            const modalContent = modal.querySelector(".modal-content");
-            if (modalContent) {
-                modalContent.scrollTop = 0;
-            }
-        }
+    function closeModal(type) {
+      document.getElementById(`${type}-modal`).style.display = "none";
+      if (document.getElementById("cookie-banner").style.display !== "flex") {
+        document.body.classList.remove("no-scroll");
+      }
+    }
 
-        function closeModal(type) {
-            const modal = document.getElementById(`${type}-modal`);
-            modal.style.display = "none";
+    function acceptCookies(accepted) {
+      localStorage.setItem("cookieConsent", accepted ? "accepted" : "declined");
+      document.getElementById("cookie-banner").style.display = "none";
+      document.body.classList.remove("no-scroll");
+    }
 
-            if (document.getElementById("cookie-banner").style.display !== "flex") {
-                document.body.classList.remove("no-scroll");
-            }
-        }
+    function checkCookieConsent() {
+      const consent = localStorage.getItem("cookieConsent");
+      if (consent !== "accepted" && consent !== "declined") {
+        document.getElementById("cookie-banner").style.display = "flex";
+        document.body.classList.add("no-scroll");
+      }
+    }
 
-        function checkCookieConsent() {
-            const consent = localStorage.getItem("cookieConsent");
+    function setLanguage(lang) {
+      const t = TEXTS[lang];
+      document.documentElement.lang = lang;
+      document.title = t["page-title"];
+      setText("page-title", t["page-title"]);
 
-            if (consent !== "accepted" && consent !== "declined") {
-                document.getElementById("cookie-banner").style.display = "flex";
-                document.body.classList.add("no-scroll");
-            } else {
-                document.body.classList.remove("no-scroll");
-            }
-        }
+      const htmlIds = [
+        "hero-card-list",
+        "who-card-1-list",
+        "who-card-2-list",
+        "who-card-3-list",
+        "who-card-4-list",
+        "cap-card-1-list",
+        "cap-card-2-list",
+        "cap-card-3-list",
+        "cap-card-4-list",
+        "contact-card-2-list"
+      ];
 
-        function acceptCookies(accepted) {
-            localStorage.setItem("cookieConsent", accepted ? "accepted" : "declined");
-            document.getElementById("cookie-banner").style.display = "none";
-            document.body.classList.remove("no-scroll");
-        }
+      Object.keys(t).forEach((key) => {
+        if (htmlIds.includes(key)) setText(key, t[key], true);
+        else if (document.getElementById(key)) setText(key, t[key], false);
+      });
 
-        function setLanguage(lang) {
-            const texts = LEGAL_TEXTS[lang];
+      if (document.getElementById("impressum-modal").style.display === "flex") {
+        document.getElementById("impressum-content").innerHTML = generateImpressum(lang);
+      }
+      if (document.getElementById("privacy-modal").style.display === "flex") {
+        document.getElementById("privacy-content").innerHTML = generatePrivacy(lang);
+      }
+    }
 
-            document.getElementById("title").textContent = texts.title;
-            document.title = texts.title;
-            document.getElementById("hero-title").textContent = texts["hero-title"];
-            document.getElementById("hero-subtitle").textContent = texts["hero-subtitle"];
+    window.addEventListener("click", (e) => {
+      const im = document.getElementById("impressum-modal");
+      const pr = document.getElementById("privacy-modal");
+      if (e.target === im) closeModal("impressum");
+      if (e.target === pr) closeModal("privacy");
+    });
 
-            const navElements = ["advantages", "capabilities", "contact", "impressum", "privacy"];
-            navElements.forEach((key) => {
-                document.getElementById(`nav-${key}`).textContent = texts[`nav-${key}`];
-                document.getElementById(`sticky-nav-${key}`).textContent = texts[`sticky-nav-${key}`];
-            });
-
-            document.getElementById("advantages-h2").textContent = texts["advantages-h2"];
-            document.getElementById("adv-1-h3").textContent = texts["adv-1-h3"];
-            document.getElementById("adv-1-p").textContent = texts["adv-1-p"];
-            document.getElementById("adv-2-h3").textContent = texts["adv-2-h3"];
-            document.getElementById("adv-2-p").textContent = texts["adv-2-p"];
-            document.getElementById("adv-3-h3").textContent = texts["adv-3-h3"];
-            document.getElementById("adv-3-p").textContent = texts["adv-3-p"];
-
-            document.getElementById("capabilities-h2").textContent = texts["capabilities-h2"];
-            document.getElementById("capabilities-intro").textContent = texts["capabilities-intro"];
-
-            for (let i = 1; i <= 7; i++) {
-                document.getElementById(`cap-group-${i}-h3`).textContent = texts[`cap-group-${i}-h3`];
-                document.getElementById(`cap-group-${i}-ul`).innerHTML = texts[`cap-group-${i}-ul`];
-            }
-
-            document.getElementById("contact-h2").textContent = texts["contact-h2"];
-            document.getElementById("contact-p-1").textContent = texts["contact-p-1"];
-            document.getElementById("contact-p-2").innerHTML = `${texts["contact-p2"]} <a href="mailto:${CONTACT_INFO.email}">${CONTACT_INFO.email}</a>`;
-            document.getElementById("contact-p-3").innerHTML = `${texts["contact-p3"]} ${CONTACT_INFO.phone}`;
-
-            document.getElementById("footer-text").textContent = texts["footer-text"];
-            document.getElementById("footer-impressum").textContent = texts["footer-impressum"];
-            document.getElementById("footer-privacy").textContent = texts["footer-privacy"];
-
-            document.getElementById("cookie-text").textContent = texts["cookie-text"];
-            document.getElementById("cookie-accept").textContent = texts["cookie-accept"];
-            document.getElementById("cookie-decline").textContent = texts["cookie-decline"];
-
-            document.documentElement.lang = lang;
-
-            if (document.getElementById("impressum-modal").style.display === "flex") {
-                document.getElementById("impressum-content").innerHTML = generateLegalContent("impressum", lang);
-            }
-
-            if (document.getElementById("privacy-modal").style.display === "flex") {
-                document.getElementById("privacy-content").innerHTML = generateLegalContent("privacy", lang);
-            }
-        }
-
-        const mainNav = document.getElementById("main-nav");
-        const stickyNav = document.getElementById("sticky-nav");
-        let navOffset = 0;
-
-        function calculateNavOffset() {
-            navOffset = mainNav.offsetTop;
-        }
-
-        function handleStickyNav() {
-            if (window.scrollY > navOffset) {
-                stickyNav.style.display = "block";
-                stickyNav.classList.add("sticky");
-                mainNav.style.visibility = "hidden";
-            } else {
-                stickyNav.style.display = "none";
-                stickyNav.classList.remove("sticky");
-                mainNav.style.visibility = "visible";
-            }
-        }
-
-        window.addEventListener("scroll", handleStickyNav);
-        window.addEventListener("resize", calculateNavOffset);
-
-        window.addEventListener("load", () => {
-            calculateNavOffset();
-            setLanguage("en");
-            checkCookieConsent();
-            handleStickyNav();
-        });
-
-        window.addEventListener("click", (event) => {
-            const impressumModal = document.getElementById("impressum-modal");
-            const privacyModal = document.getElementById("privacy-modal");
-
-            if (event.target === impressumModal) {
-                closeModal("impressum");
-            }
-
-            if (event.target === privacyModal) {
-                closeModal("privacy");
-            }
-        });
-    </script>
+    window.addEventListener("load", () => {
+      setLanguage("en");
+      checkCookieConsent();
+    });
+  </script>
 </body>
 </html>
