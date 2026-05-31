@@ -697,7 +697,7 @@
     }
   </style>
 </head>
-<body class="no-scroll">
+<body>
   <div class="topbar">
     <div class="topbar-inner">
       <button class="lang-btn" onclick="setLanguage('en')">EN</button>
@@ -1403,22 +1403,22 @@
 
     function closeModal(type) {
       document.getElementById(`${type}-modal`).style.display = "none";
-      if (document.getElementById("cookie-banner").style.display !== "flex") {
-        document.body.classList.remove("no-scroll");
-      }
+      document.body.classList.remove("no-scroll");
     }
 
     function acceptCookies(accepted) {
       localStorage.setItem("cookieConsent", accepted ? "accepted" : "declined");
       document.getElementById("cookie-banner").style.display = "none";
-      document.body.classList.remove("no-scroll");
+      if (document.getElementById("impressum-modal").style.display !== "flex" &&
+          document.getElementById("privacy-modal").style.display !== "flex") {
+        document.body.classList.remove("no-scroll");
+      }
     }
 
     function checkCookieConsent() {
       const consent = localStorage.getItem("cookieConsent");
       if (consent !== "accepted" && consent !== "declined") {
         document.getElementById("cookie-banner").style.display = "flex";
-        document.body.classList.add("no-scroll");
       }
     }
 
